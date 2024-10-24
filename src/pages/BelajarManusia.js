@@ -1,14 +1,24 @@
-import React from 'react';
+// pages/BelajarManusia.js
+import React, { useEffect } from 'react';
 import { Search } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const BelajarManusia = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false, 
+    });
+  }, []);
+
   const categories = [
-    { id: 'respiratory', name: 'Sistem Pernafasan', icon: '🫁' }, // Sistem Pernafasan
-    { id: 'digestive', name: 'Sistem Pencernaan', icon: '' },  // Sistem Pencernaan
-    { id: 'circulatory', name: 'Sistem Peredaran Darah', icon: '🫀' }, // Sistem Peredaran Darah
-    { id: 'nervous', name: 'Sistem Saraf', icon: '🧠' }, // Sistem Saraf
-    { id: 'musculoskeletal', name: 'Sistem Otot & Tulang', icon: '💪' }, // Sistem Otot & Tulang
-    { id: 'joints', name: 'Sistem Persendian', icon: '🦴' }, // Sistem Persendian
+    { id: 'respiratory', name: 'Sistem Pernafasan', icon: '🫁' },
+    { id: 'digestive', name: 'Sistem Pencernaan', icon: '🍽️' }, 
+    { id: 'circulatory', name: 'Sistem Peredaran Darah', icon: '🫀' },
+    { id: 'nervous', name: 'Sistem Saraf', icon: '🧠' },
+    { id: 'musculoskeletal', name: 'Sistem Otot & Tulang', icon: '💪' },
+    { id: 'joints', name: 'Sistem Persendian', icon: '🦴' },
   ];
 
   return (
@@ -16,11 +26,15 @@ const BelajarManusia = () => {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-16">
         <div className="container mx-auto px-4 text-left">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Belajar Tentang Tubuh Manusia! 🧑‍🤝‍🧑</h1>
-          <p className="text-xl mb-8">Yuk, kita belajar tentang bagaimana tubuh kita bekerja!</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-right"> {/* AOS on main title */}
+            Belajar Tentang Tubuh Manusia! 🧑
+          </h1>
+          <p className="text-xl mb-8" data-aos="fade-left" data-aos-delay="200"> {/* AOS on subtitle */}
+            Yuk, kita belajar tentang bagaimana tubuh kita bekerja!
+          </p>
           
            {/* Search Bar */}
-           <div className="relative max-w-2xl">
+           <div className="relative max-w-2xl" data-aos="fade-up" data-aos-delay="400"> {/* AOS on search bar */}
             <input
               type="text"
               placeholder="Cari materi pembelajaran..."
@@ -33,12 +47,15 @@ const BelajarManusia = () => {
 
       {/* Category Filters */}
       <div className="container mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-4 text-blue-600 text-left">Kategori Menarik!</h2>
+        <h2 className="text-2xl font-bold mb-4 text-blue-600 text-left" data-aos="fade-right"> {/* AOS on categories title */}
+          Kategori Menarik!
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
             <div 
               key={category.id}
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer text-left"
+              data-aos="zoom-in" // Menambahkan efek AOS pada kategori
             >
               <div className="text-4xl mb-2">{category.icon}</div>
               <h3 className="text-xl font-bold text-blue-600">{category.name}</h3>

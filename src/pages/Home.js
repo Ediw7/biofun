@@ -24,13 +24,13 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <h1 
-              data-aos="fade-up"
+              data-aos="fade-right"
               className="font-display text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent font-bold mb-6"
             >
               Petualangan Seru Belajar Biologi! 
             </h1>
             <p 
-              data-aos="fade-up" 
+              data-aos="fade-left" 
               data-aos-delay="100"
               className="font-body text-xl text-gray-700 mb-8"
             >
@@ -150,40 +150,40 @@ const LearningContent = () => (
           Ayo, tonton videonya dan pelajari hal-hal menarik tentang biologi!
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Kartu 1: Siklus Hidup Katak */}
+          {/* Kartu 1: Hewan */}
           <div 
             data-aos="fade-up"
             data-aos-delay="200"
             className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="text-4xl mb-4">🐸</div>
-            <h3 className="text-xl font-bold mb-4 text-purple-600">Siklus Hidup Katak</h3>
+            <div className="text-4xl mb-4">🐾</div>
+            <h3 className="text-xl font-bold mb-4 text-purple-600">Belajar Hewan</h3>
             <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200">
               Tonton Sekarang
             </button>
           </div>
   
-          {/* Kartu 2: Sistem Pencernaan Manusia */}
+          {/* Kartu 2:  Tumbuhan */}
           <div 
             data-aos="fade-up"
             data-aos-delay="300"
             className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="text-4xl mb-4">🫁</div>
-            <h3 className="text-xl font-bold mb-4 text-pink-600">Sistem Pencernaan Manusia</h3>
+            <div className="text-4xl mb-4">🌿</div>
+            <h3 className="text-xl font-bold mb-4 text-pink-600">Belajar Tumbuhan</h3>
             <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200">
               Tonton Sekarang
             </button>
           </div>
   
-          {/* Kartu 3: Fotosintesis pada Tumbuhan */}
+          {/* Kartu 3: Manusia */}
           <div 
             data-aos="fade-up"
             data-aos-delay="400"
             className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="text-4xl mb-4">🌿</div>
-            <h3 className="text-xl font-bold mb-4 text-orange-600">Fotosintesis pada Tumbuhan</h3>
+            <div className="text-4xl mb-4">🧑</div>
+            <h3 className="text-xl font-bold mb-4 text-orange-600">Belajar Manusia</h3>
             <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200">
               Tonton Sekarang
             </button>
@@ -316,7 +316,7 @@ const LearningContent = () => (
                 <div
                   key={index}
                   className="flex-shrink-0 w-96 transform transition-all duration-300 hover:scale-105"
-                  data-aos="fade-up" // Tambahkan efek AOS
+                  data-aos="zoom-in" // Tambahkan efek AOS
                   data-aos-delay={`${index * 100}`} // Delay untuk animasi
                   data-aos-duration="500" // Durasi animasi
                 >

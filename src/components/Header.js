@@ -11,8 +11,8 @@ const Header = () => {
       title: 'Belajar Biologi',
       emoji: '🧬',
       submenu: [
-        { title: 'Belajar Hewan', emoji: '🦁', path: '/belajar-hewan' },
-        { title: 'Belajar Tumbuhan', emoji: '🌱', path: '/belajar-tumbuhan' },
+        { title: 'Belajar Hewan', emoji: '🐾', path: '/belajar-hewan' },
+        { title: 'Belajar Tumbuhan', emoji: '🌿', path: '/belajar-tumbuhan' },
         { title: 'Belajar Manusia', emoji: '🧑', path: '/belajar-manusia' }
       ]
     },
