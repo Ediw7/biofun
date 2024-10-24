@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import BelajarHewan from './pages/BelajarHewan';
 import BelajarTumbuhan from './pages/BelajarTumbuhan';
 import BelajarManusia from './pages/BelajarManusia';
+import GamesEdukatif from './pages/GamesEdukatif';
 import Footer from './components/Footer';
 import Header from './components/Header'; // Pastikan path ini benar
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/belajar-hewan" element={<BelajarHewan />} />
         <Route path="/belajar-tumbuhan" element={<BelajarTumbuhan />} />
         <Route path="/belajar-manusia" element={<BelajarManusia />} />
+        <Route path="/games-edukatif" element={<GamesEdukatif />} />
       </Routes>
       <Footer />
     </Router>
