@@ -16,7 +16,7 @@ const Header = () => {
         { title: 'Belajar Manusia', emoji: '🧑', path: '/belajar-manusia' }
       ]
     },
-    { title: 'Games Edukatif', emoji: '🎮', path: '/games-edukatif' },
+    { title: 'Games Edukatif', emoji: '🧩', path: '/games-edukatif' },
     { title: 'Eksperimen Virtual', emoji: '🧪', path: '/eksperimen-virtual' },
     { 
       title: 'Progress Anak', 
