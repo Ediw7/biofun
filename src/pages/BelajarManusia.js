@@ -1,4 +1,3 @@
-// pages/BelajarManusia.js
 import React, { useEffect } from 'react';
 import { Search } from 'lucide-react';
 import AOS from 'aos';
