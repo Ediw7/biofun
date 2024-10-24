@@ -8,6 +8,11 @@ import BelajarHewan from './pages/BelajarHewan';
 import BelajarTumbuhan from './pages/BelajarTumbuhan';
 import BelajarManusia from './pages/BelajarManusia';
 import GamesEdukatif from './pages/GamesEdukatif';
+
+
+
+import HewanMamalia from './pages/HewanMamalia';
+import VideoMamalia from './pages/VideoMamalia';
 import Footer from './components/Footer';
 import Header from './components/Header'; // Pastikan path ini benar
 
@@ -21,6 +26,8 @@ const App = () => {
         <Route path="/belajar-tumbuhan" element={<BelajarTumbuhan />} />
         <Route path="/belajar-manusia" element={<BelajarManusia />} />
         <Route path="/games-edukatif" element={<GamesEdukatif />} />
+        <Route path="/hewan-mamalia" element={<HewanMamalia />} />
+        <Route path="/video-mamalia" element={<VideoMamalia />} />
       </Routes>
       <Footer />
     </Router>
