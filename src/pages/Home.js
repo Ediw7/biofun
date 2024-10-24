@@ -115,7 +115,7 @@ const FeaturesSection = () => (
           data-aos-delay="200"
           className="p-6 rounded-xl bg-gradient-to-br from-pink-50 to-orange-50 border border-pink-100 hover:shadow-xl transition-shadow duration-300"
         >
-          <div className="text-4xl mb-4">🎮</div>
+          <div className="text-4xl mb-4">🧩</div>
           <h3 className="text-xl font-bold mb-2 text-pink-600">Games Edukatif</h3>
           <p className="text-gray-600">Mainkan game seru untuk uji pengetahuanmu!</p>
         </div>
