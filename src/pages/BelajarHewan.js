@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Search } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const BelajarHewan = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: false, 
+    });
+  }, []);
+
   const categories = [
     { id: 'mammals', name: 'Mamalia', icon: '🦁' },
     { id: 'birds', name: 'Burung', icon: '🦜' },
@@ -20,11 +29,15 @@ const BelajarHewan = () => {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Belajar Mengenal Hewan 🐾</h1>
-          <p className="text-xl mb-8">Mari mengenal berbagai jenis hewan dan kehidupannya!</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-right"> {/* AOS on main title */}
+            Belajar Mengenal Hewan 🐾
+          </h1>
+          <p className="text-xl mb-8" data-aos="fade-left" data-aos-delay="200"> {/* AOS on subtitle */}
+            Mari mengenal berbagai jenis hewan dan kehidupannya!
+          </p>
           
           {/* Search Bar */}
-          <div className="relative max-w-2xl">
+          <div className="relative max-w-2xl" data-aos="fade-up" data-aos-delay="400"> {/* AOS on search bar */}
             <input
               type="text"
               placeholder="Cari materi pembelajaran..."
@@ -37,12 +50,15 @@ const BelajarHewan = () => {
 
       {/* Category Filters */}
       <div className="container mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-4 text-purple-600">Kategori Hewan</h2>
+        <h2 className="text-2xl font-bold mb-4 text-purple-600" data-aos="fade-right"> {/* AOS on categories title */}
+          Kategori Hewan
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
             <div 
               key={category.id}
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer"
+              data-aos="zoom-in" // Menambahkan efek AOS pada kategori
             >
               <div className="text-4xl mb-2">{category.icon}</div>
               <h3 className="text-xl font-bold text-purple-600">{category.name}</h3>
