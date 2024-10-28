@@ -21,7 +21,7 @@ const KamiSection = () => {
         {/* Kata-kata singkat di sebelah kanan */}
         <div data-aos="fade-left" className="text-center md:text-left">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-            Selamat Datang di BioFun
+            Selamat Datang di BioFun !
           </h1>
           <p className="mt-4 text-lg text-gray-700">
             Platform pembelajaran biologi yang interaktif dan menyenangkan untuk anak-anak! 
