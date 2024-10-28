@@ -8,7 +8,7 @@ import BelajarHewan from './pages/BelajarHewan';
 import BelajarTumbuhan from './pages/BelajarTumbuhan';
 import BelajarManusia from './pages/BelajarManusia';
 import GamesEdukatif from './pages/GamesEdukatif';
-
+import Tentangkami from './pages/TentangKami';
 
 
 import HewanMamalia from './pages/HewanMamalia';
@@ -34,6 +34,7 @@ const App = () => {
         <Route path="/video-mamalia" element={<VideoMamalia />} />
         <Route path="/tumbuhan-berbunga" element={<TumbuhanBerbunga/>}/>
         <Route path="/video-berbunga" element={<VideoBerbunga/>}/>
+        <Route path="/Tentang-Kami" element={<Tentangkami/>}/>
 
       </Routes>
       <Footer />
