@@ -13,6 +13,10 @@ import GamesEdukatif from './pages/GamesEdukatif';
 
 import HewanMamalia from './pages/HewanMamalia';
 import VideoMamalia from './pages/VideoMamalia';
+
+import TumbuhanBerbunga from './pages/TumbuhanBerbunga';
+import VideoBerbunga from './pages/VideoBerbunga';
+
 import Footer from './components/Footer';
 import Header from './components/Header'; // Pastikan path ini benar
 
@@ -28,6 +32,9 @@ const App = () => {
         <Route path="/games-edukatif" element={<GamesEdukatif />} />
         <Route path="/hewan-mamalia" element={<HewanMamalia />} />
         <Route path="/video-mamalia" element={<VideoMamalia />} />
+        <Route path="/tumbuhan-berbunga" element={<TumbuhanBerbunga/>}/>
+        <Route path="/video-berbunga" element={<VideoBerbunga/>}/>
+
       </Routes>
       <Footer />
     </Router>
