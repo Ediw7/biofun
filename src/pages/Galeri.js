@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import GaleriHewan from './GaleriHewan';
@@ -8,7 +7,6 @@ import GaleriManusia from './GaleriManusia';
 
 const Galeri = () => {
   const [activeGallery, setActiveGallery] = useState('hewan');
-  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
@@ -17,42 +15,42 @@ const Galeri = () => {
     });
   }, []);
 
-  const handleGalleryChange = (gallery) => {
-    setActiveGallery(gallery);
-  };
+  const categories = [
+    { id: 'hewan', name: 'Galeri Hewan', component: <GaleriHewan />, icon: '🐾' },
+    { id: 'tumbuhan', name: 'Galeri Tumbuhan', component: <GaleriTumbuhan />, icon: '🌿' },
+    { id: 'manusia', name: 'Galeri Manusia', component: <GaleriManusia />, icon: '🧑' },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <nav className="bg-blue-600 text-white py-4">
-        <div className="container mx-auto flex justify-center space-x-4">
-          <Link
-            to="#"
-            className={`hover:underline ${activeGallery === 'hewan' ? 'font-bold' : ''}`}
-            onMouseEnter={() => handleGalleryChange('hewan')}
-          >
-            Galeri Hewan
-          </Link>
-          <Link
-            to="#"
-            className={`hover:underline ${activeGallery === 'tumbuhan' ? 'font-bold' : ''}`}
-            onMouseEnter={() => handleGalleryChange('tumbuhan')}
-          >
-            Galeri Tumbuhan
-          </Link>
-          <Link
-            to="#"
-            className={`hover:underline ${activeGallery === 'manusia' ? 'font-bold' : ''}`}
-            onMouseEnter={() => handleGalleryChange('manusia')}
-          >
-            Galeri Manusia
-          </Link>
+      <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white py-16">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-bold mb-4" data-aos="fade-right">Galeri Bio</h1>
+          <p className="text-xl" data-aos="fade-left" data-aos-delay="200">
+            Jelajahi galeri menarik tentang hewan, tumbuhan, dan manusia.
+          </p>
         </div>
-      </nav>
+      </div>
 
       <div className="container mx-auto px-4 py-8">
-        {activeGallery === 'hewan' && <GaleriHewan />}
-        {activeGallery === 'tumbuhan' && <GaleriTumbuhan />}
-        {activeGallery === 'manusia' && <GaleriManusia />}
+        <h2 className="text-2xl font-bold mb-4 text-blue-600" data-aos="fade-right">Kategori Galeri</h2>
+        <div className="flex gap-6 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              className={`flex flex-col items-center w-full py-4 rounded-xl shadow-lg transition-all duration-300 ${
+                activeGallery === category.id ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+              }`}
+              onClick={() => setActiveGallery(category.id)}
+              data-aos="zoom-in"
+            >
+              <div className="text-4xl mb-2">{category.icon}</div>
+              <span className="text-lg font-semibold">{category.name}</span>
+            </button>
+          ))}
+        </div>
+
+        <div data-aos="fade-up">{categories.find((cat) => cat.id === activeGallery)?.component}</div>
       </div>
     </div>
   );
