@@ -1,9 +1,7 @@
-// ActivityHistory.js
-
 import React, { useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 
-function ActivityHistory() {
+function RiwayatAktivitas() {
   const [activities, setActivities] = useState([
     { name: "Pembelajaran", value: 40 },
     { name: "Permainan", value: 30 },
@@ -111,4 +109,4 @@ function ActivityHistory() {
   );
 }
 
-export default ActivityHistory;
+export default RiwayatAktivitas;
