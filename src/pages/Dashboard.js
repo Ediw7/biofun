@@ -1,208 +1,210 @@
-// Dashboard.js
+import React, { useState, useEffect } from 'react';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { Award, Book, Brain, Calendar, Fish, Flower, Star, Trophy, Search } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-import React, { useState } from 'react';
+const Dashboard = () => {
+  const [user, setUser] = useState({
+    name: "Andi",
+    grade: "Kelas 5",
+    totalPoints: 750,
+    streak: 5
+  });
 
-function Dashboard() {
-  const [user, setUser] = useState("Pengguna");
-  const [progress, setProgress] = useState(25);
-  const [points, setPoints] = useState(150);
-  const [achievements, setAchievements] = useState(["Master Fotosintesis", "Penjelajah Biologi"]);
-  const [latestActivity, setLatestActivity] = useState("Animasi Fotosintesis");
+  const [learningStats, setLearningStats] = useState({
+    hewan: { progress: 65, lastActivity: "Quiz Klasifikasi Hewan" },
+    tumbuhan: { progress: 40, lastActivity: "Game Fotosintesis" },
+    manusia: { progress: 85, lastActivity: "Video Sistem Pencernaan" }
+  });
 
-  const styles = {
-    container: {
-      padding: '30px',
-      fontFamily: 'Arial, sans-serif',
-      color: '#333',
-      background: 'linear-gradient(to bottom, #f0f4f8, #d9e2ec)',
-      minHeight: '100vh',
-    },
-    header: {
-      textAlign: 'center',
-      padding: '20px',
-      background: 'linear-gradient(90deg, #7926A8, #E0207D)',
-      color: '#fff',
-      borderRadius: '12px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-      fontSize: '24px',
-      fontWeight: 'bold',
-    },
-    subheader: {
-      color: '#fff',
-      fontSize: '18px',
-      marginTop: '8px',
-      fontStyle: 'italic',
-    },
-    progressSection: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      marginTop: '30px',
-      background: '#fff',
-      padding: '20px',
-      borderRadius: '12px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    },
-    progressLabel: {
-      fontSize: '16px',
-      fontWeight: 'bold',
-    },
-    progressContainer: {
-      flex: 1,
-      height: '16px',
-      backgroundColor: '#e0e0e0',
-      borderRadius: '8px',
-      overflow: 'hidden',
-      marginLeft: '15px',
-    },
-    progressBar: {
-      width: `${progress}%`,
-      height: '100%',
-      backgroundColor: '#4CAF50',
-    },
-    cardContainer: {
-      display: 'flex',
-      gap: '20px',
-      marginTop: '30px',
-      flexWrap: 'wrap',
-    },
-    card: {
-      flex: '1 1 30%',
-      padding: '20px',
-      backgroundColor: '#ffffff',
-      borderRadius: '12px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-      textAlign: 'center',
-      transition: 'transform 0.2s',
-      cursor: 'pointer',
-      '&:hover': {
-        transform: 'scale(1.05)',
-      },
-    },
-    leaderboard: {
-      marginTop: '30px',
-      padding: '20px',
-      backgroundColor: '#4CAF50',
-      borderRadius: '12px',
-      color: '#fff',
-      textAlign: 'center',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    },
-    dailyFact: {
-      padding: '20px',
-      backgroundColor: '#e3f2fd',
-      borderRadius: '12px',
-      marginTop: '30px',
-      boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    },
-    factText: {
-      fontSize: '16px',
-      fontStyle: 'italic',
-      color: '#333',
-    },
-    button: {
-      marginTop: '10px',
-      padding: '10px 20px',
-      backgroundColor: '#4CAF50',
-      color: '#fff',
-      border: 'none',
-      borderRadius: '8px',
-      cursor: 'pointer',
-      fontSize: '14px',
-      transition: 'background-color 0.2s',
-      '&:hover': {
-        backgroundColor: '#45A049',
-      },
-    },
-    footer: {
-      marginTop: '40px',
-      textAlign: 'center',
-      fontSize: '16px',
-      color: '#555',
-      fontStyle: 'italic',
-    },
-  };
+  const [achievements, setAchievements] = useState([
+    "Ahli Biologi Muda",
+    "Penjelajah Hewan",
+    "Master Anatomi"
+  ]);
+
+  const weeklyActivity = [
+    { name: 'Sen', menit: 45 },
+    { name: 'Sel', menit: 30 },
+    { name: 'Rab', menit: 60 },
+    { name: 'Kam', menit: 25 },
+    { name: 'Jum', menit: 45 },
+    { name: 'Sab', menit: 50 },
+    { name: 'Min', menit: 20 }
+  ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: 'ease-out'
+    });
+  }, []);
 
   return (
-    <div style={styles.container}>
-      {/* Header */}
-      <div style={styles.header}>
-        <h1>Selamat Datang di Dashboard BioFun!</h1>
-        <p style={styles.subheader}>Halo, {user}! Siap untuk petualangan biologi hari ini?</p>
-      </div>
-
-      {/* Progress Overview */}
-      <div style={styles.progressSection}>
-        <span style={styles.progressLabel}>Ikhtisar Kemajuan</span>
-        <div style={styles.progressContainer}>
-          <div style={styles.progressBar}></div>
-        </div>
-        <span>{progress}%</span>
-      </div>
-      <p style={{ marginTop: '10px', fontWeight: 'bold' }}>Pencapaian: {achievements.join(', ')}</p>
-      <p>Terakhir Ditonton: {latestActivity}</p>
-
-      {/* Interactive Cards */}
-      <div style={styles.cardContainer}>
-        <div style={styles.card}>
-          <h3>Hewan 🐾</h3>
-          <button style={styles.button} onClick={() => alert("Mulai Modul Hewan")}>Mulai Belajar</button>
-        </div>
-        <div style={styles.card}>
-          <h3>Tumbuhan 🌱</h3>
-          <button style={styles.button} onClick={() => alert("Mulai Modul Tumbuhan")}>Mulai Belajar</button>
-        </div>
-        <div style={styles.card}>
-          <h3>Tubuh Manusia 🧬</h3>
-          <button style={styles.button} onClick={() => alert("Mulai Modul Tubuh Manusia")}>Mulai Belajar</button>
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-blue-50">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 py-16">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <div data-aos="fade-right">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">Dashboard BioFun</h1>
+              <p className="text-xl text-white/90">Selamat Datang, {user.name}!</p>
+              <p className="text-white/80">{user.grade}</p>
+            </div>
+            <div data-aos="fade-left" className="text-center">
+              <div className="bg-white/20 backdrop-blur rounded-lg p-4">
+                <p className="text-2xl font-bold text-white">{user.streak} Hari</p>
+                <p className="text-sm text-white/90">Streak Belajar</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Daily Fact */}
-      <div style={styles.dailyFact}>
-        <h4>Fakta Biologi Harian</h4>
-        <p style={styles.factText}>Tahukah kamu? Tubuh manusia memiliki lebih dari 37 triliun sel!</p>
-        <button style={styles.button} onClick={() => alert("Jawab Tantangan!")}>Tantangan Harian</button>
-      </div>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 -mt-10">
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+          {/* Hewan Progress */}
+          <div data-aos="zoom-in" data-aos-delay="100" className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3">
+              <Fish className="text-purple-600" size={24} />
+              <h3 className="text-xl font-bold text-purple-600">Hewan</h3>
+            </div>
+            <div className="mt-4">
+              <div className="w-full bg-purple-100 rounded-full h-2.5">
+                <div 
+                  className="bg-purple-600 h-2.5 rounded-full" 
+                  style={{ width: `${learningStats.hewan.progress}%` }}
+                ></div>
+              </div>
+              <p className="text-sm text-gray-600 mt-2">
+                Aktivitas terakhir: {learningStats.hewan.lastActivity}
+              </p>
+            </div>
+          </div>
 
-      {/* Leaderboard */}
-      <div style={styles.leaderboard}>
-        <h4>Papan Peringkat</h4>
-        <p>Top Learners - Peringkat kamu: Top 10% Penjelajah BioFun</p>
-      </div>
+          {/* Tumbuhan Progress */}
+          <div data-aos="zoom-in" data-aos-delay="200" className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3">
+              <Flower className="text-green-600" size={24} />
+              <h3 className="text-xl font-bold text-green-600">Tumbuhan</h3>
+            </div>
+            <div className="mt-4">
+              <div className="w-full bg-purple-100 rounded-full h-2.5">
+                <div 
+                  className="bg-green-600 h-2.5 rounded-full" 
+                  style={{ width: `${learningStats.tumbuhan.progress}%` }}
+                ></div>
+              </div>
+              <p className="text-sm text-gray-600 mt-2">
+                Aktivitas terakhir: {learningStats.tumbuhan.lastActivity}
+              </p>
+            </div>
+          </div>
 
-      {/* Recommendations */}
-      <div style={styles.cardContainer}>
-        <div style={styles.card}>
-          <h4>Rekomendasi Modul</h4>
-          <p>Berdasarkan minat kamu di Tumbuhan, kami sarankan "Permainan Fotosintesis".</p>
+          {/* Manusia Progress */}
+          <div data-aos="zoom-in" data-aos-delay="300" className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3">
+              <Brain className="text-blue-600" size={24} />
+              <h3 className="text-xl font-bold text-blue-600">Tubuh Manusia</h3>
+            </div>
+            <div className="mt-4">
+              <div className="w-full bg-purple-100 rounded-full h-2.5">
+                <div 
+                  className="bg-blue-600 h-2.5 rounded-full" 
+                  style={{ width: `${learningStats.manusia.progress}%` }}
+                ></div>
+              </div>
+              <p className="text-sm text-gray-600 mt-2">
+                Aktivitas terakhir: {learningStats.manusia.lastActivity}
+              </p>
+            </div>
+          </div>
         </div>
-        <div style={styles.card}>
-          <h4>Target Mingguan</h4>
-          <p>Selesaikan 3 permainan tentang Kerajaan Hewan minggu ini!</p>
+
+        {/* Activity Chart & Achievements */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Weekly Activity Chart */}
+          <div data-aos="fade-right" className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <Calendar className="text-purple-600" size={24} />
+              <h3 className="text-xl font-bold text-purple-600">Aktivitas Minggu Ini</h3>
+            </div>
+            <div className="h-64">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={weeklyActivity}>
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="menit" fill="#9333ea" />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* Achievements */}
+          <div data-aos="fade-left" className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <Trophy className="text-purple-600" size={24} />
+              <h3 className="text-xl font-bold text-purple-600">Pencapaian</h3>
+            </div>
+            <div className="space-y-4">
+              {achievements.map((achievement, index) => (
+                <div 
+                  key={index} 
+                  data-aos="fade-left"
+                  data-aos-delay={index * 100}
+                  className="flex items-center gap-3 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg"
+                >
+                  <Award className="text-purple-600" size={20} />
+                  <span className="text-gray-700">{achievement}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Feedback Section */}
-      <div style={styles.dailyFact}>
-        <h4>Umpan Balik & Testimoni</h4>
-        <p>"Platform ini sangat membantu anak saya memahami biologi!" - Orang Tua</p>
-        <button style={styles.button} onClick={() => alert("Beri Umpan Balik")}>Beri Umpan Balik</button>
-      </div>
+        {/* Points & Next Goals */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div data-aos="fade-up" className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <Star className="text-purple-600" size={24} />
+              <h3 className="text-xl font-bold text-purple-600">Total Poin</h3>
+            </div>
+            <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-transparent bg-clip-text">
+              {user.totalPoints} Poin
+            </div>
+            <button className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
+              Tukar Poin
+            </button>
+          </div>
 
-      {/* Reward Section */}
-      <div style={styles.card}>
-        <h4>Sistem Poin</h4>
-        <p>Poin Kamu: {points}</p>
-        <button style={styles.button} onClick={() => alert("Tukar Poin")}>Tukar Poin dengan Hadiah</button>
-      </div>
-
-      {/* Motivational Message */}
-      <div style={styles.footer}>
-        <p>“Teruslah menjelajah! Setiap sel di tubuhmu mendukungmu!”</p>
+          <div data-aos="fade-up" data-aos-delay="100" className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <Book className="text-purple-600" size={24} />
+              <h3 className="text-xl font-bold text-purple-600">Target Berikutnya</h3>
+            </div>
+            <ul className="space-y-3">
+              {['Quiz Sistem Peredaran Darah', 'Game Klasifikasi Tumbuhan', 'Video Rantai Makanan'].map((target, index) => (
+                <li 
+                  key={index} 
+                  data-aos="fade-left"
+                  data-aos-delay={index * 100}
+                  className="flex items-center gap-2 text-gray-700"
+                >
+                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600"></div>
+                  {target}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Dashboard;
