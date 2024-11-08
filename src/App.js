@@ -15,6 +15,7 @@ import Dashboard from './pages/Dashboard';
 import RiwayatAktivitas from './pages/RiwayatAktivitas';
 import SistemPencernaan from './pages/SistemPencernaan';
 import VideoPencernaan from './pages/VideoPencernaan';
+import GameQuiz from './pages/GameQuiz';
 
 
 
@@ -47,7 +48,7 @@ const App = () => {
         <Route path="/riwayat-aktivitas" element={<RiwayatAktivitas />} />
         <Route path="/sistem-pencernaan" element={<SistemPencernaan />} />
         <Route path="/video-pencernaan" element={<VideoPencernaan />} />
-        
+        <Route path="/game-quiz" element={<GameQuiz />} />
        
 
       </Routes>

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import CSS untuk AOS
+import 'aos/dist/aos.css';
+import { useNavigate } from 'react-router-dom';
 import { Search, Play, Star } from 'lucide-react';
 
 const GamesEdukatif = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('semua');
 
@@ -50,26 +52,37 @@ const GamesEdukatif = () => {
     }
   ];
 
-  // Filter games berdasarkan kategori yang dipilih
   const filteredGames = selectedCategory === 'semua'
     ? featuredGames
     : featuredGames.filter(game => game.category === selectedCategory);
 
   useEffect(() => {
     AOS.init({
-        duration: 1000,
-        once: false, 
-      });  // Inisialisasi AOS dengan durasi animasi
+      duration: 1000,
+      once: false,
+    });
   }, []);
+
+  const handlePlayClick = (game) => {
+    if (game.category === 'kuis') {
+      navigate('/game-quiz');
+    } else if (game.category === 'puzzle') {
+      navigate('/game-puzzle');
+    } else if (game.category === 'mencocokan') {
+      navigate('/game-mencocokan');
+    } else if (game.category === 'kartu Memori') {
+      navigate('/game-memori');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-blue-50">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4"data-aos="fade-right">Games Edukatif BioFun 🧩</h1>
-          <p className="text-xl mb-8"data-aos="fade-left" data-aos-delay="200">Belajar biologi jadi lebih seru dengan bermain!</p>
-          
+          <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-right">Games Edukatif BioFun 🧩</h1>
+          <p className="text-xl mb-8" data-aos="fade-left" data-aos-delay="200">Belajar biologi jadi lebih seru dengan bermain!</p>
+
           {/* Search Bar */}
           <div className="relative max-w-2xl" data-aos="fade-up" data-aos-delay="400">
             <input
@@ -106,7 +119,7 @@ const GamesEdukatif = () => {
             <div
               key={game.id}
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer"
-              data-aos="zoom-in" // Tambahkan animasi zoom-in pada kartu game
+              data-aos="zoom-in"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="text-4xl">{game.icon}</div>
@@ -121,7 +134,10 @@ const GamesEdukatif = () => {
                 <span className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">
                   {game.category.charAt(0).toUpperCase() + game.category.slice(1)}
                 </span>
-                <button className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors">
+                <button
+                  className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors"
+                  onClick={() => handlePlayClick(game)}
+                >
                   <Play className="w-4 h-4" />
                   Main
                 </button>
