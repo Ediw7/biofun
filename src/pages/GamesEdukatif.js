@@ -71,7 +71,7 @@ const GamesEdukatif = () => {
           <p className="text-xl mb-8"data-aos="fade-left" data-aos-delay="200">Belajar biologi jadi lebih seru dengan bermain!</p>
           
           {/* Search Bar */}
-          <div className="relative max-w-2xl">
+          <div className="relative max-w-2xl" data-aos="fade-up" data-aos-delay="400">
             <input
               type="text"
               placeholder="Cari game pembelajaran..."

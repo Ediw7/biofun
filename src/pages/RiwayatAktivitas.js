@@ -79,14 +79,13 @@ const RiwayatAktivitas = () => {
         <div className="container mx-auto px-4 text-left">
           <h1 
             className="text-4xl md:text-5xl font-bold mb-4"
-            data-aos="fade-down"
+            data-aos="fade-right"
           >
-            Riwayat Aktivitas BioFun
+            Riwayat Aktivitas BioFun 📜
           </h1>
           <p 
             className="text-xl mb-8"
-            data-aos="fade-up"
-            data-aos-delay="100"
+            data-aos="fade-left" data-aos-delay="200"
           >
             Pantau perkembangan belajar biologi Anda!
           </p>

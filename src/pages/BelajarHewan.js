@@ -5,7 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const BelajarHewan = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
   
   useEffect(() => {
     AOS.init({

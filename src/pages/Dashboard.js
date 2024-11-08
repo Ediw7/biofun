@@ -49,9 +49,9 @@ const Dashboard = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div data-aos="fade-right">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">Dashboard BioFun</h1>
-              <p className="text-xl text-white/90">Selamat Datang, {user.name}!</p>
-              <p className="text-white/80">{user.grade}</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4" data-aos="fade-right">Dashboard BioFun 📊</h1>
+              <p className="text-xl text-white/90"data-aos="fade-left" data-aos-delay="200">Selamat Datang, {user.name}!</p>
+              <p className="text-white/80"data-aos="fade-left" data-aos-delay="200">{user.grade}</p>
             </div>
             <div data-aos="fade-left" className="text-center">
               <div className="bg-white/20 backdrop-blur rounded-lg p-4">
