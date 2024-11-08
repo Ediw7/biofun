@@ -1,15 +1,24 @@
 import React, { useEffect } from 'react';
 import { Search } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
 const BelajarManusia = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: false, 
     });
   }, []);
+
+  const handleCategoryClick = (categoryId) => {
+    if (categoryId === 'respiratory') {
+      navigate('/sistem-pencernaan');
+    }
+    // Add other category navigations here
+  };
 
   const categories = [
     { id: 'respiratory', name: 'Sistem Pernafasan', icon: '🫁' },
@@ -54,7 +63,8 @@ const BelajarManusia = () => {
             <div 
               key={category.id}
               className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer text-left"
-              data-aos="zoom-in" // Menambahkan efek AOS pada kategori
+              data-aos="zoom-in" 
+              onClick={() => handleCategoryClick(category.id)}
             >
               <div className="text-4xl mb-2">{category.icon}</div>
               <h3 className="text-xl font-bold text-blue-600">{category.name}</h3>

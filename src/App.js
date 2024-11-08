@@ -13,6 +13,8 @@ import Tentangkami from './pages/TentangKami';
 import Galeri from './pages/Galeri';
 import Dashboard from './pages/Dashboard';
 import RiwayatAktivitas from './pages/RiwayatAktivitas';
+import SistemPencernaan from './pages/SistemPencernaan';
+import VideoPencernaan from './pages/VideoPencernaan';
 
 
 
@@ -43,6 +45,8 @@ const App = () => {
         <Route path="/galeri" element={<Galeri />} /> 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/riwayat-aktivitas" element={<RiwayatAktivitas />} />
+        <Route path="/sistem-pencernaan" element={<SistemPencernaan />} />
+        <Route path="/video-pencernaan" element={<VideoPencernaan />} />
         
        
 

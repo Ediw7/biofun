@@ -1,6 +1,5 @@
-import React from 'react';
-import { Microscope, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Microscope, Menu, X, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -8,7 +7,7 @@ const Header = () => {
 
   const menuItems = [
     {
-      title: 'Belajar Biologi',
+      title: 'Belajar',
       emoji: '🧬',
       submenu: [
         { title: 'Belajar Hewan', emoji: '🐾', path: '/belajar-hewan' },
@@ -16,18 +15,18 @@ const Header = () => {
         { title: 'Belajar Manusia', emoji: '🧑', path: '/belajar-manusia' }
       ]
     },
-    { title: 'Games Edukatif', emoji: '🧩', path: '/games-edukatif' },
-    { title: 'Eksperimen Virtual', emoji: '🧪', path: '/eksperimen-virtual' },
-    { 
-      title: 'Progress Anak', 
+    { title: 'Games', emoji: '🧩', path: '/games-edukatif' },
+    { title: 'Eksperimen', emoji: '🧪', path: '/eksperimen-virtual' },
+    { title: 'Galeri', emoji: '🖼️', path: '/galeri' },
+    { title: 'Tentang Kami', emoji: '📚', path: '/tentang-kami' },
+    {
+      title: 'Progress Anak',
       emoji: '📊',
       submenu: [
-        { title: 'Dashboard', emoji: '📊', path: '/dashboard' }, 
-        { title: 'Riwayat Aktivitas', emoji: '📜', path: '/riwayat-aktivitas' } 
+        { title: 'Dashboard', emoji: '📊', path: '/dashboard' },
+        { title: 'Riwayat Aktivitas', emoji: '📜', path: '/riwayat-aktivitas' }
       ]
-    },
-    { title: 'Galeri', emoji: '🖼️', path: '/galeri' },
-    { title: 'Tentang Kami', emoji: '📚', path: '/tentang-kami' }
+    }
   ];
 
   const handleMenuItemClick = () => {
@@ -90,6 +89,18 @@ const Header = () => {
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-2 bg-purple-600 px-4 py-2 rounded-full">
+              <User className="w-6 h-6 text-white" />
+              <span className="text-white font-semibold">Edi</span>
+            </div>
+            <div className="md:hidden">
+              <button className="text-gray-500 hover:text-blue-500 transition-colors">
+                <User className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

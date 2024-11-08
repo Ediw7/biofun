@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 
 const Dashboard = () => {
   const [user, setUser] = useState({
-    name: "Andi",
+    name: "Edi",
     grade: "Kelas 5",
     totalPoints: 750,
     streak: 5
