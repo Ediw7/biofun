@@ -15,8 +15,8 @@ const Header = () => {
         { title: 'Belajar Manusia', emoji: '🧑', path: '/belajar-manusia' }
       ]
     },
-    { title: 'Games', emoji: '🧩', path: '/games-edukatif' },
-    { title: 'Eksperimen', emoji: '🧪', path: '/eksperimen-virtual' },
+    { title: 'Games Edukatif', emoji: '🧩', path: '/games-edukatif' },
+    { title: 'Eksperimen Virtual', emoji: '🧪', path: '/eksperimen-virtual' },
     { title: 'Galeri', emoji: '🖼️', path: '/galeri' },
     { title: 'Tentang Kami', emoji: '📚', path: '/tentang-kami' },
     {
