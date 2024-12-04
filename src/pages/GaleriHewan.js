@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const GaleriHewan = () => {
+  const [selectedSpecie, setSelectedSpecie] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,15 +15,85 @@ const GaleriHewan = () => {
   }, []);
 
   const species = [
-    { id: 1, name: 'Singa', image: 'https://source.unsplash.com/100x100/?lion', description: 'Singa adalah karnivora besar yang berasal dari Afrika.' },
-    { id: 2, name: 'Gajah', image: 'https://source.unsplash.com/100x100/?elephant', description: 'Gajah adalah mamalia darat terbesar di dunia.' },
-    { id: 3, name: 'Burung Hantu', image: 'https://source.unsplash.com/100x100/?owl', description: 'Burung Hantu adalah burung nokturnal dengan penglihatan tajam.' },
-    { id: 4, name: 'Kupu-kupu', image: 'https://source.unsplash.com/100x100/?butterfly', description: 'Kupu-kupu adalah serangga yang dikenal karena sayapnya yang indah.' },
-    { id: 5, name: 'Paus', image: 'https://source.unsplash.com/100x100/?whale', description: 'Paus adalah mamalia laut yang terbesar di lautan.' }
+    {
+      id: 1,
+      name: 'Singa',
+      image: 'https://img.pikbest.com/origin/10/12/20/02rpIkbEsTdSf.jpg!w700wp',
+      description: 'Singa adalah karnivora besar yang berasal dari Afrika.',
+      sound: '/audio/tiger.mp3',
+      speed: '74 km/jam',
+      lifespan: '15 - 16 tahun',
+      weight: '190 kg (Jantan), 130 kg (Betina)',
+      origin: 'Afrika dan India',
+    },
+    {
+      id: 2,
+      name: 'Gajah',
+      image: 'https://img.pikbest.com/origin/10/41/94/34WpIkbEsTXI3.jpg!w700wp',
+      description: 'Gajah adalah mamalia darat terbesar di dunia.',
+      sound: '/audio/gajah.mp3',
+      speed: '40 km/jam',
+      lifespan: '60 - 70 tahun',
+      weight: '6000 kg',
+      origin: 'Afrika dan Asia',
+    },
+    {
+      id: 3,
+      name: 'Burung Hantu',
+      image: 'https://hawkwatch.org/wp-content/uploads/2023/06/GHOW-FS-1024x768.png',
+      description: 'Burung Hantu adalah burung nokturnal dengan penglihatan tajam.',
+      sound: '/audio/owl.mp3',
+      speed: '40 km/jam',
+      lifespan: '10 - 15 tahun',
+      weight: '1 - 2 kg',
+      origin: 'Seluruh dunia',
+    },
+    {
+      id: 4,
+      name: 'Kupu-kupu',
+      image: 'https://www.befreetour.com/img/attraction/butterfly-park-&-insect-kingdom%C2%A020191011100126.jpg',
+      description: 'Kupu-kupu adalah serangga yang dikenal karena sayapnya yang indah.',
+      sound: '/audio/kupu.mp3',
+      speed: '8 km/jam',
+      lifespan: '2 - 4 minggu',
+      weight: '0.5 - 2 g',
+      origin: 'Seluruh dunia',
+    },
+    {
+      id: 5,
+      name: 'Paus',
+      image: 'https://asset-a.grid.id/crop/0x0:0x0/x/photo/2023/05/06/paus-orcajpg-20230506113442.jpg',
+      description: 'Paus adalah mamalia laut yang terbesar di lautan.',
+      sound: '/audio/paus.mp3',
+      speed: '30 km/jam',
+      lifespan: '70 - 90 tahun',
+      weight: '150,000 kg',
+      origin: 'Oseania dan Samudra Atlantik',
+    },
+    {
+      id: 6,
+      name: 'Harimau',
+      image: 'https://radarlamsel.disway.id/upload/190cfa0b61b68a40360792837b12c7e4.jpg',
+      description: 'Harimau adalah kucing besar yang ditemukan di Asia.',
+      sound: '/audio/tiger_sound.mp3',
+      speed: '65 km/jam',
+      lifespan: '10 - 15 tahun',
+      weight: '200 - 300 kg',
+      origin: 'Asia',
+    },
   ];
 
-  const handleCardClick = (id) => {
-    navigate(`/spesies/${id}`);
+  const handleCardClick = (specie) => {
+    setSelectedSpecie(specie);
+  };
+
+  const closeModal = () => {
+    setSelectedSpecie(null);
+  };
+
+  const playSound = (soundFile) => {
+    const audio = new Audio(soundFile);
+    audio.play();
   };
 
   return (
@@ -42,21 +113,72 @@ const GaleriHewan = () => {
           {species.map((specie) => (
             <div
               key={specie.id}
-              className="bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer"
+              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer"
               data-aos="zoom-in"
-              onClick={() => handleCardClick(specie.id)}
+              onClick={() => handleCardClick(specie)}
             >
               <img
                 src={specie.image}
                 alt={specie.name}
-                className="object-cover w-full h-32 rounded-lg mb-4"
+                className="object-cover w-full h-full rounded-lg mb-4"
+                style={{ height: '250px', width: '250px' }}
               />
-              <h3 className="text-lg font-bold text-gray-800">{specie.name}</h3>
-              <p className="text-gray-600">{specie.description}</p>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  playSound(specie.sound);
+                }}
+                className="text-blue-600 hover:underline"
+              >
+                🔊 {specie.name}
+              </button>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {selectedSpecie && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-gray-500 bg-opacity-75 z-50"
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white rounded-lg p-8 w-11/12 md:w-1/2 lg:w-1/3 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-2xl font-bold mb-4">{selectedSpecie.name}</h2>
+            <div className="flex justify-center mb-4">
+              <img
+                src={selectedSpecie.image}
+                alt={selectedSpecie.name}
+                className="object-contain w-full h-auto max-h-96 rounded-lg"
+              />
+            </div>
+            <p className="text-gray-700 mb-4">{selectedSpecie.description}</p>
+            <div className="text-sm text-gray-500">
+              <p><strong>Kecepatan:</strong> {selectedSpecie.speed}</p>
+              <p><strong>Lama Hidup:</strong> {selectedSpecie.lifespan}</p>
+              <p><strong>Berat Badan:</strong> {selectedSpecie.weight}</p>
+              <p><strong>Asal:</strong> {selectedSpecie.origin}</p>
+            </div>
+            <div className="mt-4">
+              <button
+                onClick={() => playSound(selectedSpecie.sound)}
+                className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+              >
+                🔊 Putar Suara
+              </button>
+            </div>
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-4xl font-bold text-black hover:text-red-500 transition-colors duration-200"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
