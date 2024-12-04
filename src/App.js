@@ -17,6 +17,7 @@ import SistemPencernaan from './pages/SistemPencernaan';
 import VideoPencernaan from './pages/VideoPencernaan';
 import GameQuiz from './pages/GameQuiz';
 import GamePuzzle from './pages/GamePuzzle';
+import EksperimenVirtual from './pages/EksperimenVirtual';
 
 
 
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/video-pencernaan" element={<VideoPencernaan />} />
         <Route path="/game-quiz" element={<GameQuiz />} />
         <Route path="/game-puzzle" element={<GamePuzzle />} />
+        <Route path="/eksperimen-virtual" element={<EksperimenVirtual />} />
        
 
       </Routes>
