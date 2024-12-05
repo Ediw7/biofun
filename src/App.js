@@ -16,8 +16,10 @@ import RiwayatAktivitas from './pages/RiwayatAktivitas';
 import SistemPencernaan from './pages/SistemPencernaan';
 import VideoPencernaan from './pages/VideoPencernaan';
 import GameQuiz from './pages/GameQuiz';
+import GameMemori from './pages/GameMemori';
 import GamePuzzle from './pages/GamePuzzle';
 import EksperimenVirtual from './pages/EksperimenVirtual';
+import Profile from './pages/Profile';
 
 
 
@@ -29,6 +31,8 @@ import VideoBerbunga from './pages/VideoBerbunga';
 
 import Footer from './components/Footer';
 import Header from './components/Header';
+import { ImageOff, Import } from 'lucide-react';
+
 
 const App = () => {
   return (
@@ -52,7 +56,9 @@ const App = () => {
         <Route path="/video-pencernaan" element={<VideoPencernaan />} />
         <Route path="/game-quiz" element={<GameQuiz />} />
         <Route path="/game-puzzle" element={<GamePuzzle />} />
+        <Route path="/game-memori" element={<GameMemori />} />
         <Route path="/eksperimen-virtual" element={<EksperimenVirtual />} />
+        <Route path="/profile" element={<Profile />} />
        
 
       </Routes>

@@ -91,16 +91,16 @@ const Header = () => {
             </button>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-2 bg-purple-600 px-4 py-2 rounded-full">
+          <div className="hidden md:flex items-center space-x-2 bg-purple-600 px-4 py-2 rounded-full">
+            <Link to="/profile" className="flex items-center space-x-2">
               <User className="w-6 h-6 text-white" />
               <span className="text-white font-semibold">Edi</span>
-            </div>
-            <div className="md:hidden">
-              <button className="text-gray-500 hover:text-blue-500 transition-colors">
-                <User className="w-6 h-6" />
-              </button>
-            </div>
+            </Link>
+          </div>
+          <div className="md:hidden">
+            <Link to="/profile" className="text-gray-500 hover:text-blue-500 transition-colors">
+              <User className="w-6 h-6" />
+            </Link>
           </div>
         </div>
       </div>
