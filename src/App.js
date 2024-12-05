@@ -21,7 +21,9 @@ import GamePuzzle from './pages/GamePuzzle';
 import EksperimenVirtual from './pages/EksperimenVirtual';
 import EksperimenMateri from './pages/EksperimenMateri';
 import LabEksperimen from './pages/LabEksperimen';
+import GolonganDarah from './pages/GolonganDarah';
 import Profile from './pages/Profile';
+import  EksperimenGolonganDarah from './pages/EksperimenGolonganDarah';
 
 
 
@@ -63,6 +65,8 @@ const App = () => {
         <Route path="/eksperimen-materi" element={<EksperimenMateri />} />
         <Route path="/lab-eksperimen" element={<LabEksperimen/>} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/golongan-darah" element={<GolonganDarah />} />
+        <Route path="/eksperimen-golongan-darah" element={<EksperimenGolonganDarah />} />
        
 
       </Routes>
