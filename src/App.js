@@ -19,6 +19,8 @@ import GameQuiz from './pages/GameQuiz';
 import GameMemori from './pages/GameMemori';
 import GamePuzzle from './pages/GamePuzzle';
 import EksperimenVirtual from './pages/EksperimenVirtual';
+import EksperimenMateri from './pages/EksperimenMateri';
+import LabEksperimen from './pages/LabEksperimen';
 import Profile from './pages/Profile';
 
 
@@ -58,6 +60,8 @@ const App = () => {
         <Route path="/game-puzzle" element={<GamePuzzle />} />
         <Route path="/game-memori" element={<GameMemori />} />
         <Route path="/eksperimen-virtual" element={<EksperimenVirtual />} />
+        <Route path="/eksperimen-materi" element={<EksperimenMateri />} />
+        <Route path="/lab-eksperimen" element={<LabEksperimen/>} />
         <Route path="/profile" element={<Profile />} />
        
 
