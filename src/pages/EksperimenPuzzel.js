@@ -1,143 +1,166 @@
-import React, { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-const EksperimenPuzzel = () => {
-  const [pieces, setPieces] = useState([]);
-  const [isGameOver, setIsGameOver] = useState(false);
+const TabelGolonganDarah = () => {
+  const navigate = useNavigate(); // Inisialisasi useNavigate
 
-  useEffect(() => {
-    const initialPieces = [
-      {
-        id: 1,
-        title: 'Golongan Darah A',
-        images: [
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/A_Blood_Group_Rh_Positivity.svg/1024px-A_Blood_Group_Rh_Positivity.svg.png', // Golongan A
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/BloodgroupB.jpg/1024px-BloodgroupB.jpg', // Golongan B
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/AB_Blood_Group.svg/1024px-AB_Blood_Group.svg.png', // Golongan AB
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/O_blood_group.svg/1024px-O_blood_group.svg.png', // Golongan O
-        ],
-        correctIndex: 0,
-        currentIndex: 0,
-      },
-      {
-        id: 2,
-        title: 'Golongan Darah B',
-        images: [
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/A_Blood_Group_Rh_Positivity.svg/1024px-A_Blood_Group_Rh_Positivity.svg.png', // Golongan A
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/BloodgroupB.jpg/1024px-BloodgroupB.jpg', // Golongan B
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/AB_Blood_Group.svg/1024px-AB_Blood_Group.svg.png', // Golongan AB
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/O_blood_group.svg/1024px-O_blood_group.svg.png', // Golongan O
-        ],
-        correctIndex: 1,
-        currentIndex: 0,
-      },
-      {
-        id: 3,
-        title: 'Golongan Darah AB',
-        images: [
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/A_Blood_Group_Rh_Positivity.svg/1024px-A_Blood_Group_Rh_Positivity.svg.png', // Golongan A
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/BloodgroupB.jpg/1024px-BloodgroupB.jpg', // Golongan B
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/AB_Blood_Group.svg/1024px-AB_Blood_Group.svg.png', // Golongan AB
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/O_blood_group.svg/1024px-O_blood_group.svg.png', // Golongan O
-        ],
-        correctIndex: 2,
-        currentIndex: 0,
-      },
-      {
-        id: 4,
-        title: 'Golongan Darah O',
-        images: [
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/A_Blood_Group_Rh_Positivity.svg/1024px-A_Blood_Group_Rh_Positivity.svg.png', // Golongan A
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/BloodgroupB.jpg/1024px-BloodgroupB.jpg', // Golongan B
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/AB_Blood_Group.svg/1024px-AB_Blood_Group.svg.png', // Golongan AB
-          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/O_blood_group.svg/1024px-O_blood_group.svg.png', // Golongan O
-        ],
-        correctIndex: 3,
-        currentIndex: 0,
-      },
-    ];
-    setPieces(initialPieces);
-  }, []);
+  const serumOptions = [
+    { nama: "Serum Anti-A", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-A.png" },
+    { nama: "Serum Anti-B", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-B.png" },
+    { nama: "Serum Anti-AB", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-AB.png" },
+    { nama: "Serum Anti-D", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-D.png" },
+  ];
 
-  useEffect(() => {
-    const allCorrect = pieces.every((piece) => piece.currentIndex === piece.correctIndex);
-    if (allCorrect && pieces.length > 0) {
-      setIsGameOver(true);
-      toast.success('Selamat! Kamu berhasil menyusun puzzle golongan darah dengan benar!', {
-        position: 'top-center',
-        autoClose: 3000,
-        theme: 'colored',
-      });
-    }
-  }, [pieces]);
+  const agglutinationOptions = [
+    { status: "menggumpal", image: "gambar/menggumpal.png" },
+    { status: "tidak menggumpal", image: "gambar/tidak-menggumpal.png" },
+  ];
 
-  const handleImageClick = (id) => {
-    setPieces((prevPieces) =>
-      prevPieces.map((piece) =>
-        piece.id === id
-          ? {
-              ...piece,
-              currentIndex: (piece.currentIndex + 1) % piece.images.length,
-            }
-          : piece
-      )
+  const [selectedSerum, setSelectedSerum] = useState(0);
+  const [agglutinationStates, setAgglutinationStates] = useState(
+    Array(2 * serumOptions.length).fill(0)
+  );
+
+  const [showInstruction, setShowInstruction] = useState(false); // State untuk pop-up instruksi
+
+  const handleSerumClick = (index) => {
+    setSelectedSerum(index);
+  };
+
+  const handleAgglutinationClick = (index) => {
+    setAgglutinationStates((prevState) =>
+      prevState.map((state, i) => (i === index ? (state + 1) % agglutinationOptions.length : state))
     );
   };
 
-  const handleRestart = () => {
-    setPieces((prevPieces) =>
-      prevPieces.map((piece) => ({
-        ...piece,
-        currentIndex: 0,
-      }))
-    );
-    setIsGameOver(false);
+  const handleNavigate = () => {
+    navigate("/eksperimen-perbandingan"); // Navigasi ke halaman /eksperimen-hasil
   };
+
+  const renderTable = () => (
+    <div className="container mx-auto mt-6 bg-white shadow-lg rounded p-4">
+      <table className="table-auto w-full border border-gray-300">
+        <thead>
+          <tr>
+            <th className="border px-4 py-2 text-center">Pasien \ Serum</th>
+            {serumOptions.map((serum, index) => (
+              <th key={index} className="border px-4 py-2 text-center">
+                <img
+                  src={serum.image}
+                  alt={serum.nama}
+                  className={`w-16 h-16 mx-auto cursor-pointer ${
+                    selectedSerum === index ? "border-2 border-blue-500" : ""
+                  }`}
+                  onClick={() => handleSerumClick(index)}
+                />
+                <p className="mt-2 text-sm">{serum.nama}</p>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {[...Array(2)].map((_, rowIndex) => (
+            <tr key={rowIndex}>
+              <td className="border px-4 py-2 text-center">
+                <img
+                  src="https://via.placeholder.com/100?text=Pasien"
+                  alt={`Pasien ${rowIndex + 1}`}
+                  className="w-24 h-24 mx-auto"
+                />
+              </td>
+              {serumOptions.map((_, colIndex) => {
+                const cellIndex = rowIndex * serumOptions.length + colIndex;
+                const cellState =
+                  agglutinationOptions[agglutinationStates[cellIndex]] || {};
+
+                return (
+                  <td
+                    key={colIndex}
+                    className="border px-4 py-2 text-center cursor-pointer"
+                    onClick={() => handleAgglutinationClick(cellIndex)}
+                  >
+                    <img
+                      src={cellState.image}
+                      alt={cellState.status}
+                      className="w-12 h-12 mx-auto"
+                    />
+                    <p className="mt-2 text-sm">{cellState.status}</p>
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-green-50 p-6">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">Puzzle Uji Golongan Darah</h1>
-        <p className="text-lg">Klik pada gambar untuk mengubah hingga sesuai dengan urutan golongan darah!</p>
+    <div className="min-h-screen bg-gray-100 p-4 relative">
+      {/* Header dengan Judul */}
+      <div className="bg-blue-500 text-white py-4 px-6 text-center relative">
+        <h1 className="text-2xl font-bold">Tabel Golongan Darah</h1>
+        <p>Klik gambar serum atau kolom aglutinasi untuk interaksi</p>
       </div>
 
-      {/* Kontainer Utama */}
-      <div className="container mx-auto mt-6">
-        {isGameOver && (
-          <div className="text-center mb-6">
+      {/* Button Instruksi (Ikon Alat) */}
+      <div className="absolute top-4 left-4">
+        <button className="p-2 flex flex-col items-center" onClick={() => setShowInstruction(true)}>
+          <img
+            src="https://cdn.icon-icons.com/icons2/3871/PNG/512/menu_icon_244496.png"
+            alt="Alat"
+            className="w-14 h-14"
+          />
+          <span className="text-blue-500 font-semibold">Alat</span>
+        </button>
+      </div>
+
+      {/* Pop-Up Instruksi */}
+      {showInstruction && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-1/2">
+            <h2 className="text-xl font-bold mb-4">Instruksi</h2>
+            <p className="text-sm mb-4">
+              Setelah menentukan Alat dan Bahan, Tahap selanjutnya : <br />
+              1. Klik salah satu serum untuk memilih jenis serum (diusahakan untuk mengurutkan dari Serum A, Serum B, Serum AB, Serum D.<br />
+              2. Amati perubahan setelah memilih serum dimana akan menyesuaikan apakah darah pasien/pendonor menggumpal atau tidak menggumpal.<br />
+              3. Ulangi tahapan pada bagian uji golongan darah Pendonor. <br />
+              4. Klik tombol "Tahap Selanjutnya" untuk melanjutkan ke langkah berikutnya.<br />
+
+            </p>
             <button
-              onClick={handleRestart}
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+              onClick={() => setShowInstruction(false)} // Tutup pop-up instruksi
+              className="bg-red-500 text-white px-4 py-2 rounded shadow hover:bg-red-600 transition"
             >
-              Main Lagi
+              Tutup
             </button>
           </div>
-        )}
-
-        {/* Layout 4 Kolom */}
-        <div className="grid grid-cols-4 gap-6">
-          {pieces.map((piece) => (
-            <div
-              key={piece.id}
-              className="text-center p-4 bg-white shadow-md rounded-lg"
-              onClick={() => handleImageClick(piece.id)}
-            >
-              <h2 className="text-xl font-semibold mb-4">{piece.title}</h2>
-              <img
-                src={piece.images[piece.currentIndex]}
-                alt={`Puzzle ${piece.title}`}
-                className="w-full h-24 object-contain rounded cursor-pointer"
-              />
-            </div>
-          ))}
         </div>
+      )}
+
+      {/* First Card */}
+      <div className="bg-gray-200 p-4 rounded shadow-lg mb-4 mt-6">
+        <h2 className="text-lg font-bold mb-4 text-center">Uji Lab Golongan Darah Pasien</h2>
+        {renderTable()}
       </div>
 
-      <ToastContainer />
+      {/* Second Card */}
+      <div className="bg-gray-200 p-4 rounded shadow-lg">
+        <h2 className="text-lg font-bold mb-4 text-center">Uji Lab Golongan Darah Pasien</h2>
+        {renderTable()}
+      </div>
+
+      {/* Button Mulai Eksperimen */}
+      <div className="text-center mt-8">
+        <button
+          onClick={handleNavigate} // Navigasi ke halaman hasil
+          className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-600 transition"
+        >
+          Tahap Selanjutnya
+        </button>
+      </div>
     </div>
   );
 };
 
-export default EksperimenPuzzel;
+export default TabelGolonganDarah;

@@ -26,6 +26,9 @@ import Profile from './pages/Profile';
 import EksperimenGolonganDarah from './pages/EksperimenGolonganDarah';
 import EksperimenAlatBahan from './pages/EksperimenAlatBahan';
 import EksperimenPuzzel from './pages/EksperimenPuzzel';
+import EksperimenPerbandingan from './pages/EksperimenPerbandingan';
+import EksperimenHasil from './pages/EksperimenHasil';
+
 
 
 import HewanMamalia from './pages/HewanMamalia';
@@ -37,6 +40,7 @@ import VideoBerbunga from './pages/VideoBerbunga';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import { ImageOff, Import } from 'lucide-react';
+
 
 
 const App = () => {
@@ -70,6 +74,8 @@ const App = () => {
         <Route path="/eksperimen-golongan-darah" element={<EksperimenGolonganDarah />} />
         <Route path="/eksperimen-alat-bahan" element={<EksperimenAlatBahan />} />
         <Route path="/eksperimen-puzzel" element={<EksperimenPuzzel />} />
+        <Route path="/eksperimen-perbandingan" element={<EksperimenPerbandingan />} />
+        <Route path="/eksperimen-hasil" element={<EksperimenHasil />} />
 
       </Routes>
       <Footer />

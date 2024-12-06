@@ -50,12 +50,12 @@ const EksperimenGolonganDarah = () => {
           <div className="flex-1">
             <h2 className="text-2xl font-bold text-orange-600 mb-4">Studi Kasus</h2>
             <p className="text-gray-600 mb-4">
-              Telah terjadi kecelakaan lalu lintas yang melibatkan dua buah mobil. Kedua pengemudi 
-              membutuhkan transfusi darah, dan masing-masing keluarga telah menyiapkan 1 pendonor.
+            Telah terjadi kecelakaan sepeda yang mengakibatkan seorang pengendara mengalami luka parah hingga kehilangan banyak darah. 
+            Kondisinya memerlukan transfusi darah segera, dan seorang kerabat telah bersedia menjadi pendonor.
             </p>
             <p className="text-gray-600 mb-4">
-              Bantulah dokter untuk memeriksa golongan darah kedua pengemudi dan pendonornya agar 
-              transfusi dapat dilakukan dengan tepat.
+            Bantulah dokter untuk memeriksa golongan darah pengendara dan 
+            pendonornya agar transfusi dapat dilakukan dengan tepat.
             </p>
             <button
               onClick={handleNavigate}
