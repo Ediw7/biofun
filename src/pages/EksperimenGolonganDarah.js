@@ -14,7 +14,7 @@ const EksperimenGolonganDarah = () => {
   }, []);
 
   const handleNavigate = () => {
-    navigate('/golongan-darah'); // Sesuaikan dengan rute tujuan
+    navigate('/eksperimen-alat-bahan'); // Sesuaikan dengan rute tujuan
   };
 
   return (

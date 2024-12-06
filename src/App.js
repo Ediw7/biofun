@@ -23,8 +23,9 @@ import EksperimenMateri from './pages/EksperimenMateri';
 import LabEksperimen from './pages/LabEksperimen';
 import GolonganDarah from './pages/GolonganDarah';
 import Profile from './pages/Profile';
-import  EksperimenGolonganDarah from './pages/EksperimenGolonganDarah';
-
+import EksperimenGolonganDarah from './pages/EksperimenGolonganDarah';
+import EksperimenAlatBahan from './pages/EksperimenAlatBahan';
+import EksperimenPuzzel from './pages/EksperimenPuzzel';
 
 
 import HewanMamalia from './pages/HewanMamalia';
@@ -67,7 +68,8 @@ const App = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/golongan-darah" element={<GolonganDarah />} />
         <Route path="/eksperimen-golongan-darah" element={<EksperimenGolonganDarah />} />
-       
+        <Route path="/eksperimen-alat-bahan" element={<EksperimenAlatBahan />} />
+        <Route path="/eksperimen-puzzel" element={<EksperimenPuzzel />} />
 
       </Routes>
       <Footer />
