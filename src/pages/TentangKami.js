@@ -2,98 +2,154 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const KamiSection = () => {
+const AboutUs = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1000, once: false });
   }, []);
 
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-purple-50 p-8 text-center">
-      <div data-aos="fade-up">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-          Selamat Datang di BioFun!
-        </h1>
-        <p className="mt-4 text-lg text-gray-700 max-w-2xl">
-          Platform pembelajaran biologi yang interaktif dan menyenangkan untuk anak-anak! 
-          BioFun adalah platform pembelajaran biologi yang dirancang untuk membantu anak-anak memahami konsep-konsep biologi
-          secara interaktif dan menyenangkan. Kami percaya bahwa pembelajaran tidak harus membosankan. Dengan menggunakan teknologi
-          dan metode pengajaran yang inovatif, kami ingin menciptakan lingkungan yang membuat belajar biologi menjadi pengalaman
-          yang mengasyikkan.
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const OurMission = () => {
-  return (
-    <div className="py-20 bg-gray-100">
-      <div className="container mx-auto flex flex-col md:flex-row items-center">
-        <div data-aos="fade-right" className="w-full md:w-1/2 md:text-left text-center p-4">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-            Our Mission
-          </h2>
-          <p className="text-lg text-gray-700">
-            Misi kami adalah untuk menyediakan platform pembelajaran yang dapat diakses dan interaktif untuk anak-anak agar mereka
-            lebih mudah memahami biologi. Kami fokus pada cara-cara kreatif yang membuat pembelajaran terasa menyenangkan dan bermakna.
-          </p>
-        </div>
-        <div data-aos="fade-left" className="w-full md:w-1/2 flex justify-center p-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <img src="https://www.beberoosie.co.id/wp-content/uploads/2018/10/BR-Article-10-2-510x340.png" alt="Mission Image 1" className="rounded-lg shadow-lg" />
-            <img src="https://png.pngtree.com/png-vector/20240324/ourlarge/pngtree-adorable-students-in-the-classroom-utilizing-a-laptop-and-tablet-png-image_12046944.png" alt="Mission Image 2" className="rounded-lg shadow-lg" />
-            <img src="https://guruinovatif.s3.ap-southeast-1.amazonaws.com/9216/20230905_115533_0000.png" alt="Mission Image 3" className="rounded-lg shadow-lg" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const MeetOurLeaders = () => {
-  const profileImages = [
-    { src: 'https://ibighit.com/bts/images/profile/proof/member/member-jin.jpg', name: 'Jin', position: 'CEO' },
-    { src: 'https://ibighit.com/bts/images/profile/proof/member/member-jhope.jpg', name: 'J-Hope', position: 'COO' },
-    // Tambahkan profil tambahan di sini jika diperlukan
+  const developers = [
+    { 
+      name: 'Edi Wicoro', 
+      role: 'Ketua Tim',
+      image: 'https://png.pngtree.com/png-vector/20240324/ourmid/pngtree-young-smiling-man-programmer-cartoon-avatar-coding-vector-png-image_11987938.png',
+      skills: ['Web Developer', 'UI/UX Design']
+    },
+    { 
+      name: 'Mazroha Anis Sugesti', 
+      role: 'Anggota',
+      image: 'https://png.pngtree.com/png-vector/20240324/ourmid/pngtree-software-developer-working-on-computer-png-image_11987936.png',
+      skills: ['Web Developer', 'UI/UX Design']
+    }
   ];
 
   return (
-    <div className="py-20 bg-white">
-      <div className="container mx-auto text-center">
-        <h2 
-          data-aos="fade-up"
-          className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-          Meet Our Leaders
-        </h2>
-        <p data-aos="fade-up" className="text-lg text-gray-700 mb-8">
-          Kenali lebih dekat tim pemimpin kami yang berdedikasi untuk memberikan pengalaman belajar terbaik bagi Anda.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center justify-center">
-          {profileImages.map((profile, index) => (
-            <div data-aos="zoom-in" data-aos-delay={index * 100} key={index} className="flex flex-col items-center text-center">
-              <img
-                src={profile.src}
-                alt={`Profile of ${profile.name}`}
-                className="rounded-full w-40 h-40 mb-4 object-cover"
-              />
-              <h3 className="text-xl font-semibold text-gray-800">{profile.name}</h3>
-              <p className="text-gray-500">{profile.position}</p>
-            </div>
-          ))}
+    <div className="bg-gradient-to-br from-blue-50 to-purple-50">
+      {/* Hero Section */}
+      <div className="min-h-screen flex flex-col items-center justify-center text-center p-8">
+        <div data-aos="fade-up">
+          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            Tentang BioFun
+          </h1>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            BioFun adalah platform revolusioner untuk pembelajaran biologi anak-anak. 
+            Kami percaya bahwa pendidikan sains harus menyenangkan, interaktif, dan mudah dipahami. 
+            Misi kami adalah menginspirasi generasi muda untuk jatuh cinta dengan dunia biologi.
+          </p>
         </div>
       </div>
+
+      {/* Our Story Section */}
+      <div className="py-20 bg-white">
+        <div className="container mx-auto flex flex-col md:flex-row items-center">
+          <div data-aos="fade-right" className="w-full md:w-1/2 p-8">
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+              Kisah Kami
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Perjalanan BioFun dimulai dari passion kami untuk membuat sains lebih mudah dimengerti dan menarik bagi anak-anak. 
+              Kami melihat bahwa banyak anak-anak merasa takut dan bosan dengan pelajaran biologi. 
+              Oleh karena itu, kami memutuskan untuk menciptakan platform yang tidak hanya mendidik, 
+              tetapi juga menghibur dan menginspirasi.
+            </p>
+          </div>
+          <div data-aos="fade-left" className="w-full md:w-1/2 grid grid-cols-2 gap-4">
+            <div className="h-64">
+              <img 
+                src="https://st4.depositphotos.com/2466713/28450/v/1600/depositphotos_284503370-stock-illustration-children-at-biology-lesson-flat.jpg" 
+                alt="BioFun Story" 
+                className="h-full w-full object-cover rounded-lg shadow-lg"
+                data-aos="zoom-in"
+              />
+            </div>
+            <div className="h-64">
+              <img 
+                src="https://st3.depositphotos.com/1252248/17985/v/1600/depositphotos_179856974-stock-illustration-children-in-the-lesson-of.jpg" 
+                alt="BioFun Learning" 
+                className="h-full w-full object-cover rounded-lg shadow-lg"
+                data-aos="zoom-in"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+       {/* Mission and Vision Section */}
+       <div className="py-20 bg-white">
+        <div className="container mx-auto text-center">
+          <div data-aos="fade-up">
+            <h2 className="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+              Misi dan Visi Kami
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 px-8">
+              <div className="bg-blue-50 p-8 rounded-2xl shadow-md" data-aos="flip-left">
+                <h3 className="text-2xl font-semibold mb-4 text-blue-800">Misi</h3>
+                <p className="text-gray-700">
+                  Membuat pembelajaran biologi menjadi pengalaman yang menyenangkan, 
+                  interaktif, dan mudah dipahami bagi anak-anak. Kami berkomitmen untuk 
+                  menginspirasi rasa ingin tahu ilmiah dan mencintai alam.
+                </p>
+              </div>
+              <div className="bg-purple-50 p-8 rounded-2xl shadow-md" data-aos="flip-right">
+                <h3 className="text-2xl font-semibold mb-4 text-purple-800">Visi</h3>
+                <p className="text-gray-700">
+                  Menjadi platform pendidikan biologi terdepan yang mengubah cara anak-anak 
+                  memandang dan mempelajari sains, menciptakan generasi yang cerdas, 
+                  kreatif, dan peduli terhadap lingkungan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Developer Team Section */}
+      <div className="py-20 bg-gray-100">
+        <div className="container mx-auto text-center">
+          <h2 
+            data-aos="fade-up"
+            className="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            Tim Pengembang Kami
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-8">
+            {developers.map((dev, index) => (
+              <div 
+                key={index} 
+                data-aos="zoom-in" 
+                data-aos-delay={index * 100}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all hover:scale-105"
+              >
+                <div className="relative">
+                  <img
+                    src={dev.image}
+                    alt={`Profile of ${dev.name}`}
+                    className="w-full h-80 object-cover"
+                    data-aos="flip-up"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
+                    <h3 className="text-2xl font-bold">{dev.name}</h3>
+                    <p className="text-sm opacity-80">{dev.role}</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {dev.skills.map((skill, idx) => (
+                      <span 
+                        key={idx} 
+                        className="bg-purple-100 text-purple-800 text-xs font-medium px-3 py-1 rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 };
 
-const Home = () => {
-  return (
-    <div>
-      <KamiSection />
-      <OurMission />
-      <MeetOurLeaders />
-    </div>
-  );
-};
-
-export default Home;
+export default AboutUs;

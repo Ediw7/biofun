@@ -13,7 +13,6 @@ const GamesEdukatif = () => {
     { id: 'semua', name: 'Semua' },
     { id: 'kuis', name: 'Kuis' },
     { id: 'puzzle', name: 'Puzzle' },
-    { id: 'mencocokan', name: 'Mencocokkan' },
     { id: 'kartu Memori', name: 'Kartu Memori' },
   ];
 
@@ -34,14 +33,7 @@ const GamesEdukatif = () => {
       icon: "🐸",
       description: "Susun langkah-langkah metamorfosis katak dari telur hingga menjadi katak dewasa dalam puzzle yang menantang!"
     },
-    {
-      id: 3,
-      title: "Cocokkan Tumbuhan dengan Lingkungannya!",
-      category: "mencocokan",
-      points: "1,500",
-      icon: "🌿",
-      description: "Cocokkan berbagai jenis tumbuhan dengan habitat alami mereka, pelajari tentang ekosistem yang berbeda!"
-    },
+    
     {
       id: 4,
       title: "Klasifikasi Jenis Hewan: Uji Ingatanmu!",
@@ -68,8 +60,6 @@ const GamesEdukatif = () => {
       navigate('/game-quiz');
     } else if (game.category === 'puzzle') {
       navigate('/game-puzzle');
-    } else if (game.category === 'mencocokan') {
-      navigate('/game-mencocokan');
     } else if (game.category === 'kartu Memori') {
       navigate('/game-memori');
     }
