@@ -17,15 +17,15 @@ const VideoPencernaan = () => {
     },
     {
       id: 2,
-      title: "Pencernaan Hewan Herbivora vs Karnivora",
-      thumbnail: "/api/placeholder/400/225",
+      title: "Lambung",
+      thumbnail: "https://asset-a.grid.id/crop/0x0:4826x3684/x/photo/2022/10/06/27284422_a1v0_r5en_220113jpg-20221006021014.jpg",
       views: "1.1k",
       duration: "9:30"
     },
     {
       id: 3,
       title: "Proses Penyerapan Nutrisi dalam Tubuh",
-      thumbnail: "/api/placeholder/400/225",
+      thumbnail: "https://asset-a.grid.id//crop/0x0:0x0/700x465/photo/2022/06/02/fotojet-3-1jpg-20220602092713.jpg",
       views: "850",
       duration: "8:20"
     }

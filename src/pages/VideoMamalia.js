@@ -11,21 +11,21 @@ const VideoMamalia = () => {
       id: 1,
       title: "Kehidupan Singa di Alam Liar",
       duration: "10:25",
-      thumbnail: "/api/placeholder/800/450",
+      thumbnail: "https://img.pikbest.com/origin/10/12/20/02rpIkbEsTdSf.jpg!w700wp",
       views: "1.2k",
       description: "Pelajari tentang kehidupan singa di habitat alaminya, bagaimana mereka berburu dan hidup dalam kelompok yang disebut pride. Video ini akan mengajarkan kita tentang perilaku sosial singa, cara berburu, dan cara mereka membesarkan anak-anak mereka."
     },
     {
       id: 2,
       title: "Gajah Afrika: Sang Raksasa Cerdas",
-      thumbnail: "/api/placeholder/400/225",
+      thumbnail: "https://img.pikbest.com/origin/10/41/94/34WpIkbEsTXI3.jpg!w700wp",
       views: "985",
       duration: "8:45"
     },
     {
       id: 3,
       title: "Lumba-lumba: Mamalia Laut yang Mengagumkan",
-      thumbnail: "/api/placeholder/400/225",
+      thumbnail: "https://asset-a.grid.id//crop/0x0:0x0/700x465/photo/bobofoto/original/2052_lumba-lumba.jpg",
       views: "1.5k",
       duration: "12:30"
     }

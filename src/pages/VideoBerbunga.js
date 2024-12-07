@@ -18,14 +18,14 @@ const VideoBerbunga = () => {
     {
       id: 2,
       title: "Jenis Bunga dan Adaptasinya",
-      thumbnail: "/api/placeholder/400/225",
+      thumbnail: "https://awsimages.detik.net.id/community/media/visual/2023/09/24/bunga-teratai_169.jpeg?w=600&q=90",
       views: "1.1k",
       duration: "7:30"
     },
     {
       id: 3,
       title: "Keajaiban Mekar Bunga Matahari",
-      thumbnail: "/api/placeholder/400/225",
+      thumbnail: "https://cdn.rri.co.id/berita/Serui/o/1723034700833-636a1a8a90aaa4127c2238e94229f768/yrfcaspmo3plkst.jpeg",
       views: "920",
       duration: "11:15"
     }

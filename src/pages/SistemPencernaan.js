@@ -19,7 +19,7 @@ const SistemPencernaan = () => {
       id: 1,
       name: "Mulut",
       function: "Mengunyah makanan dan memulai proses pencernaan dengan bantuan enzim.",
-      image: "/api/placeholder/400/300",
+      image: "https://img.freepik.com/premium-vector/oral-cavity_595634-24.jpg",
       characteristics: ["Enzim Amilase", "Pengunyahan", "Penyediaan Rasa"],
       details: "Mulut merupakan awal dari sistem pencernaan, di mana makanan dikunyah dan bercampur dengan air liur."
     },
@@ -27,7 +27,7 @@ const SistemPencernaan = () => {
       id: 2,
       name: "Lambung",
       function: "Mengolah makanan secara kimiawi dengan asam lambung dan enzim.",
-      image: "/api/placeholder/400/300",
+      image: "https://asset-a.grid.id/crop/0x0:4826x3684/x/photo/2022/10/06/27284422_a1v0_r5en_220113jpg-20221006021014.jpg",
       characteristics: ["Asam Lambung", "Pencernaan Protein", "Lapisan Lendir"],
       details: "Lambung mengurai makanan menjadi bentuk semi-cair agar lebih mudah diserap."
     },
@@ -35,7 +35,7 @@ const SistemPencernaan = () => {
       id: 3,
       name: "Usus Halus",
       function: "Menyerap nutrisi dari makanan yang dicerna.",
-      image: "/api/placeholder/400/300",
+      image: "https://asset-a.grid.id//crop/0x0:0x0/700x465/photo/2022/06/02/fotojet-3-1jpg-20220602092713.jpg",
       characteristics: ["Penyerapan Nutrisi", "Vili", "Proses Kimia Lanjutan"],
       details: "Usus halus menyerap sebagian besar nutrisi, yang kemudian disalurkan ke seluruh tubuh."
     }

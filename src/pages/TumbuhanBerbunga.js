@@ -19,7 +19,7 @@ const TumbuhanBerbunga = () => {
       id: 1,
       name: "Mawar",
       scientificName: "Rosa",
-      image: "/api/placeholder/400/300",
+      image: "https://images.tokopedia.net/img/cache/250-square/VqbcmM/2022/7/22/c4ffc4b4-af62-4830-b351-6a6f3c9662b6.jpg?ect=4g",
       description: "Bunga indah dengan aroma yang harum, sering dijadikan simbol cinta.",
       characteristics: ["Berwarna-warni", "Aroma Harum", "Duri pada batang"],
       habitat: "Taman dan kebun di seluruh dunia"
@@ -28,7 +28,7 @@ const TumbuhanBerbunga = () => {
       id: 2,
       name: "Teratai",
       scientificName: "Nymphaea",
-      image: "/api/placeholder/400/300",
+      image: "https://awsimages.detik.net.id/community/media/visual/2023/09/24/bunga-teratai_169.jpeg?w=600&q=90",
       description: "Tumbuhan air yang tumbuh di kolam dan sungai, dikenal dengan bunganya yang cantik.",
       characteristics: ["Tumbuhan Air", "Bunga Besar", "Daun Lebar"],
       habitat: "Kolam dan perairan tenang"
@@ -37,7 +37,7 @@ const TumbuhanBerbunga = () => {
       id: 3,
       name: "Anggrek",
       scientificName: "Orchidaceae",
-      image: "/api/placeholder/400/300",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPSY6bKZcOPNNkApfy3JcqCycg1pE9t9kbXr8Yv-xWynnuuHzfqTzQSqq-aJVYyf1pTtvGRi0bX7d45o0SW_Q90Q",
       description: "Bunga eksotis yang memiliki bentuk dan warna yang beragam.",
       characteristics: ["Eksotis", "Beragam Warna", "Bunga Berkelopak"],
       habitat: "Hutan tropis dan rumah kaca"

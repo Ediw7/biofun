@@ -19,7 +19,7 @@ const HewanMamalia = () => {
       id: 1,
       name: "Singa",
       scientificName: "Panthera leo",
-      image: "/api/placeholder/400/300",
+      image: "https://img.pikbest.com/origin/10/12/20/02rpIkbEsTdSf.jpg!w700wp",
       description: "Raja hutan yang hidup berkelompok dalam pride",
       characteristics: ["Karnivora", "Hidup berkelompok", "Bulu keemasan"],
       habitat: "Padang rumput Afrika"
@@ -28,7 +28,7 @@ const HewanMamalia = () => {
       id: 2,
       name: "Gajah Afrika",
       scientificName: "Loxodonta africana",
-      image: "/api/placeholder/400/300",
+      image: "https://img.pikbest.com/origin/10/41/94/34WpIkbEsTXI3.jpg!w700wp",
       description: "Mamalia darat terbesar dengan belalai panjang",
       characteristics: ["Herbivora", "Sosial", "Cerdas"],
       habitat: "Hutan dan savana Afrika"
@@ -37,7 +37,7 @@ const HewanMamalia = () => {
       id: 3,
       name: "Lumba-lumba",
       scientificName: "Delphinus delphis",
-      image: "/api/placeholder/400/300",
+      image: "https://asset-a.grid.id//crop/0x0:0x0/700x465/photo/bobofoto/original/2052_lumba-lumba.jpg",
       description: "Mamalia laut yang sangat cerdas dan sosial",
       characteristics: ["Karnivora", "Berenang cepat", "Ekolokasi"],
       habitat: "Lautan di seluruh dunia"

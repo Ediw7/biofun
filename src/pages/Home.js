@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
+
 
 
 const HeroSection = () => {
@@ -133,16 +135,19 @@ const FeaturesSection = () => (
   </div>
 );
 
-const LearningContent = () => (
+const LearningContent = () => {
+  const navigate = useNavigate();
+
+  return (
     <div className="py-20 bg-gradient-to-b from-purple-50 to-pink-50">
       <div className="container mx-auto px-4 text-center">
-        <h2 
+        <h2
           data-aos="fade-up"
           className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
         >
           Coba Belajar Sekarang!
         </h2>
-        <p 
+        <p
           data-aos="fade-up"
           data-aos-delay="100"
           className="text-lg text-gray-600 mb-12"
@@ -151,47 +156,57 @@ const LearningContent = () => (
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Kartu 1: Hewan */}
-          <div 
+          <div
             data-aos="fade-up"
             data-aos-delay="200"
             className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="text-4xl mb-4">🐾</div>
             <h3 className="text-xl font-bold mb-4 text-purple-600">Belajar Hewan</h3>
-            <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200">
+            <button
+              onClick={() => navigate("/belajar-hewan")}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
+            >
               Tonton Sekarang
             </button>
           </div>
-  
-          {/* Kartu 2:  Tumbuhan */}
-          <div 
+
+          {/* Kartu 2: Tumbuhan */}
+          <div
             data-aos="fade-up"
             data-aos-delay="300"
             className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="text-4xl mb-4">🌿</div>
             <h3 className="text-xl font-bold mb-4 text-pink-600">Belajar Tumbuhan</h3>
-            <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200">
+            <button
+              onClick={() => navigate("/belajar-tumbuhan")}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
+            >
               Tonton Sekarang
             </button>
           </div>
-  
+
           {/* Kartu 3: Manusia */}
-          <div 
+          <div
             data-aos="fade-up"
             data-aos-delay="400"
             className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
             <div className="text-4xl mb-4">🧑</div>
             <h3 className="text-xl font-bold mb-4 text-orange-600">Belajar Manusia</h3>
-            <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200">
+            <button
+              onClick={() => navigate("/belajar-manusia")}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
+            >
               Tonton Sekarang
             </button>
           </div>
         </div>
       </div>
     </div>
-  );
+    );
+  };
   
 
   const testimonialData = [

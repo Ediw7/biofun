@@ -98,7 +98,7 @@ const GaleriHewan = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-50">
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16">
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-right">
             Galeri Spesies Hewan 🦁
@@ -128,7 +128,7 @@ const GaleriHewan = () => {
                   e.stopPropagation();
                   playSound(specie.sound);
                 }}
-                className="text-blue-600 hover:underline"
+                className="text-purple-600 hover:underline"
               >
                 🔊 {specie.name}
               </button>
@@ -165,7 +165,7 @@ const GaleriHewan = () => {
             <div className="mt-4">
               <button
                 onClick={() => playSound(selectedSpecie.sound)}
-                className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+                className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700"
               >
                 🔊 Putar Suara
               </button>

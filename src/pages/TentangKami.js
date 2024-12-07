@@ -11,13 +11,13 @@ const AboutUs = () => {
     { 
       name: 'Edi Wicoro', 
       role: 'Ketua Tim',
-      image: 'https://png.pngtree.com/png-vector/20240324/ourmid/pngtree-young-smiling-man-programmer-cartoon-avatar-coding-vector-png-image_11987938.png',
+      image: 'gambar/edi.png',
       skills: ['Web Developer', 'UI/UX Design']
     },
     { 
       name: 'Mazroha Anis Sugesti', 
       role: 'Anggota',
-      image: 'https://png.pngtree.com/png-vector/20240324/ourmid/pngtree-software-developer-working-on-computer-png-image_11987936.png',
+      image: 'gambar/anis.png',
       skills: ['Web Developer', 'UI/UX Design']
     }
   ];
@@ -55,7 +55,7 @@ const AboutUs = () => {
           <div data-aos="fade-left" className="w-full md:w-1/2 grid grid-cols-2 gap-4">
             <div className="h-64">
               <img 
-                src="https://st4.depositphotos.com/2466713/28450/v/1600/depositphotos_284503370-stock-illustration-children-at-biology-lesson-flat.jpg" 
+                src="gambar/biofunstory.png" 
                 alt="BioFun Story" 
                 className="h-full w-full object-cover rounded-lg shadow-lg"
                 data-aos="zoom-in"
@@ -63,7 +63,7 @@ const AboutUs = () => {
             </div>
             <div className="h-64">
               <img 
-                src="https://st3.depositphotos.com/1252248/17985/v/1600/depositphotos_179856974-stock-illustration-children-in-the-lesson-of.jpg" 
+                src="gambar/biofunlearning.png" 
                 alt="BioFun Learning" 
                 className="h-full w-full object-cover rounded-lg shadow-lg"
                 data-aos="zoom-in"

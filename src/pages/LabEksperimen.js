@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Search } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -27,22 +28,22 @@ const LabEksperimen = () => {
     },
     {
       id: 'eksperimen2',
-      name: 'Eksperimen 2: Fisika Dasar',
+      name: 'Eksperimen 2: Pertumbuhan Kecambah',
       icon: '⚛️',
-      description: 'Praktekkan eksperimen fisika dasar dengan alat virtual.',
+      description: 'Praktekkan pertumbuhan kecambah dengan alat virtual.',
     },
     {
       id: 'eksperimen3',
-      name: 'Eksperimen 3: Biologi Sel',
+      name: 'Eksperimen 3: Daur Hidup Serangga',
       icon: '🧬',
-      description: 'Jelajahi sel dan struktur biologis dalam eksperimen virtual.',
+      description: 'Mengamati proses metamorfosis serangga.',
     },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-blue-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-16">
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-right">
             Materi 🧑‍🔬
@@ -50,12 +51,21 @@ const LabEksperimen = () => {
           <p className="text-xl mb-8" data-aos="fade-left" data-aos-delay="200">
             Lakukan eksperimen fisika, kimia, dan biologi secara virtual di sini!
           </p>
+        {/* Search Bar */}
+        <div className="relative max-w-2xl" data-aos="fade-up" data-aos-delay="400">
+            <input
+              type="text"
+              placeholder="Cari eksperimen atau materi..."
+              className="w-full px-6 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-300"
+            />
+            <Search className="absolute right-4 top-3 text-gray-400" />
+          </div>
         </div>
       </div>
 
       {/* Experiment List */}
       <div className="container mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-4 text-orange-600" data-aos="fade-right">
+        <h2 className="text-2xl font-bold mb-4 text-purple-600" data-aos="fade-right">
           Pilih Eksperimen
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -67,7 +77,7 @@ const LabEksperimen = () => {
               onClick={() => handleNavigate(experiment.id)}
             >
               <div className="text-4xl mb-2">{experiment.icon}</div>
-              <h3 className="text-xl font-bold text-orange-600">{experiment.name}</h3>
+              <h3 className="text-xl font-bold text-purple-600">{experiment.name}</h3>
               <p className="text-gray-600">{experiment.description}</p>
             </div>
           ))}
