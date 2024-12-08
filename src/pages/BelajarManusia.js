@@ -13,16 +13,13 @@ const BelajarManusia = () => {
     });
   }, []);
 
-  const handleCategoryClick = (categoryId) => {
-    if (categoryId === 'respiratory') {
-      navigate('/sistem-pencernaan');
-    }
-    // Add other category navigations here
+  const handleCategoryClick = () => {
+    navigate('/sistem-pencernaan');
   };
 
   const categories = [
+    { id: 'digestive', name: 'Sistem Pencernaan', icon: '🍽️' },
     { id: 'respiratory', name: 'Sistem Pernafasan', icon: '🫁' },
-    { id: 'digestive', name: 'Sistem Pencernaan', icon: '🍽️' }, 
     { id: 'circulatory', name: 'Sistem Peredaran Darah', icon: '🫀' },
     { id: 'nervous', name: 'Sistem Saraf', icon: '🧠' },
     { id: 'musculoskeletal', name: 'Sistem Otot & Tulang', icon: '💪' },

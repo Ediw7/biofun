@@ -14,11 +14,8 @@ const navigate = useNavigate();
     });
   }, []);
 
-  const handleCategoryClick = (categoryId) => {
-    if (categoryId === 'mammals') {
-      navigate('/hewan-mamalia');
-    }
-    // Add other category navigations here
+  const handleCategoryClick = () => {
+    navigate('/hewan-mamalia');
   };
 
   const categories = [

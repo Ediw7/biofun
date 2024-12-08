@@ -14,11 +14,8 @@ const BelajarTumbuhan = () => {
     });
   }, []);
 
-  const handleCategoryClick = (categoryId) => {
-    if (categoryId === 'flowering') {
-      navigate('/tumbuhan-berbunga');
-    }
-    // Add other category navigations here
+  const handleCategoryClick = () => {
+    navigate('/tumbuhan-berbunga');
   };
 
   const categories = [
