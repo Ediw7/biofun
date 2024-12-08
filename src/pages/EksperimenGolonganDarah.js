@@ -18,9 +18,9 @@ const EksperimenGolonganDarah = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-blue-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-16">
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-right">
             Eksperimen Golongan Darah 🩸
@@ -48,7 +48,7 @@ const EksperimenGolonganDarah = () => {
 
           {/* Teks */}
           <div className="flex-1">
-            <h2 className="text-2xl font-bold text-orange-600 mb-4">Studi Kasus</h2>
+            <h2 className="text-2xl font-bold text-purple-600 mb-4">Studi Kasus</h2>
             <p className="text-gray-600 mb-4">
             Telah terjadi kecelakaan sepeda yang mengakibatkan seorang pengendara mengalami luka parah hingga kehilangan banyak darah. 
             Kondisinya memerlukan transfusi darah segera, dan seorang kerabat telah bersedia menjadi pendonor.
@@ -59,7 +59,7 @@ const EksperimenGolonganDarah = () => {
             </p>
             <button
               onClick={handleNavigate}
-              className="bg-orange-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-orange-600 transition"
+              className="bg-purple-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-purple-600 transition"
             >
               Mulai Eksperimen
             </button>
