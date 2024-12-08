@@ -3,12 +3,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const animals = [
-  { name: "Gajah", scientificName: "Loxodonta", image: "https://i.pinimg.com/originals/fa/ce/d7/faced74d0ae4a86eb755b9e05945244f.png" },
-  { name: "Harimau", scientificName: "Panthera tigris", image: "https://img.pikbest.com/ai/illus_our/20230423/d0232aa552629d70f067b2a7a3a90e55.jpg!sw800" },
-  { name: "Kuda", scientificName: "Equus ferus caballus", image: "https://st.depositphotos.com/2664341/58356/v/450/depositphotos_583567638-stock-illustration-illustration-cute-cartoon-horse.jpg" },
-  { name: "Singa", scientificName: "Panthera leo", image: "https://st.depositphotos.com/1967477/1843/i/950/depositphotos_18438051-stock-illustration-lion-cartoon.jpg" },
-  { name: "Zebra", scientificName: "Equus quagga", image: "https://png.pngtree.com/png-clipart/20230825/original/pngtree-cute-zebra-cartoon-on-white-background-picture-image_8654636.png" },
-  { name: "Panda", scientificName: "Ailuropoda melanoleuca", image: "https://img.pikbest.com/png-images/qiantu/cute-cartoon-panda-is-commercially-available_2609825.png!sw800" },
+  { name: "Gajah", scientificName: "Loxodonta", image: "https://i.pinimg.com/originals/fa/ce/d7/faced74d0ae4a86eb755b9e05945244f.png", sound: "/audio/gajah.mp3" },
+  { name: "Harimau", scientificName: "Panthera tigris", image: "https://img.pikbest.com/ai/illus_our/20230423/d0232aa552629d70f067b2a7a3a90e55.jpg!sw800", sound: "/audio/harimau.mp3" },
+  { name: "Kuda", scientificName: "Equus ferus caballus", image: "https://st.depositphotos.com/2664341/58356/v/450/depositphotos_583567638-stock-illustration-illustration-cute-cartoon-horse.jpg", sound: "/audio/kuda.mp3" },
+  { name: "Singa", scientificName: "Panthera leo", image: "https://st.depositphotos.com/1967477/1843/i/950/depositphotos_18438051-stock-illustration-lion-cartoon.jpg", sound: "/audio/tiger.mp3" },
+  { name: "Sapi", scientificName: "Bos taurus", image: "https://png.pngtree.com/png-clipart/20230409/original/pngtree-cute-cow-cartoon-png-image_9040341.png", sound: "/audio/sapi.mp3" },
+  { name: "Burung Hantu", scientificName: "Strigiformes", image: "https://png.pngtree.com/png-clipart/20220923/original/pngtree-owl-bird-cartoon-png-image_8629432.png", sound: "/audio/owl.mp3" },
 ];
 
 const GameMemori = () => {
@@ -49,6 +49,9 @@ const GameMemori = () => {
 
   const checkMatch = (flippedCards) => {
     if (flippedCards[0].name === flippedCards[1].name) {
+      // Play sound of the matched animal
+      playSound(flippedCards[0].sound);
+
       const newMatched = [...matched, flippedCards[0].name];
       setMatched(newMatched);
 
@@ -72,6 +75,11 @@ const GameMemori = () => {
       }, 1000);
     }
     setFlipped([]);
+  };
+
+  const playSound = (soundFile) => {
+    const audio = new Audio(soundFile);
+    audio.play();
   };
 
   const restartGame = () => {
@@ -104,9 +112,8 @@ const GameMemori = () => {
         <p className="text-lg">Klik pada gambar untuk mencocokkan pasangan!</p>
       </div>
 
-
-       {/* Game Over Message */}
-       {isGameOver && (
+      {/* Game Over Message */}
+      {isGameOver && (
         <div className="mt-6 text-2xl font-semibold text-purple-600">
           Kamu menang! Semua kartu telah dicocokkan.
         </div>
@@ -159,7 +166,6 @@ const GameMemori = () => {
         ))}
       </div>
 
-     
     </div>
   );
 };
