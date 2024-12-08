@@ -179,7 +179,7 @@ const EksperimenAlatBahan = () => {
         {popupVisible && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-white rounded-lg shadow-lg p-6 w-80">
-              <h3 className="text-xl font-bold text-purple-600 mb-4">{popupTitle}</h3>
+              <h3 className="text-xl font-bold text-red-600 mb-4">{popupTitle}</h3>
               <ul className="list-disc pl-5">
                 {popupContent.map((item, index) => (
                   <li key={index} className="text-gray-800 mb-2">{item.nama}</li>
