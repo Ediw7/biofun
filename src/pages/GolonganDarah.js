@@ -47,30 +47,30 @@ const GolonganDarah = () => {
   const handlePrev = () => {
     if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
   };
-
+  
   const handleNext = () => {
     if (currentIndex < slides.length - 1) setCurrentIndex(currentIndex + 1);
   };
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-purple-100 flex flex-col justify-center items-center p-4">
-      <div className="w-full max-w-2xl">
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="w-full max-w-3xl">
+        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden h-[600px] flex flex-col">
           {/* Header */}
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 px-6 flex items-center justify-between">
             <h1 className="text-lg md:text-xl font-bold">
               {slides[currentIndex].title}
             </h1>
           </div>
-
+  
           {/* Content Section */}
-          <div className="p-6">
+          <div className="p-6 overflow-y-auto flex-1">
             <h2 className="text-xl font-semibold text-purple-600 mb-4">
               {slides[currentIndex].subtitle}
             </h2>
-
+  
             <p className="text-gray-700 mb-4">{slides[currentIndex].content}</p>
-
+  
             {slides[currentIndex].image && (
               <img
                 src={slides[currentIndex].image}
@@ -79,7 +79,7 @@ const GolonganDarah = () => {
               />
             )}
           </div>
-
+  
           {/* Navigation */}
           <div className="bg-gray-100 p-4 flex justify-between items-center">
             <button
@@ -104,6 +104,6 @@ const GolonganDarah = () => {
       </div>
     </div>
   );
-};
+  };
 
 export default GolonganDarah;
