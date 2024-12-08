@@ -17,6 +17,7 @@ const LabEksperimen = () => {
 
   const handleNavigate = () => {
     navigate('/eksperimen-golongan-darah'); // Arahkan ke rute yang diinginkan
+    window.scrollTo(0, 0);
   };
 
   const experiments = [

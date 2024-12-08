@@ -16,6 +16,7 @@ const BelajarTumbuhan = () => {
 
   const handleCategoryClick = () => {
     navigate('/tumbuhan-berbunga');
+    window.scrollTo(0, 0);
   };
 
   const categories = [

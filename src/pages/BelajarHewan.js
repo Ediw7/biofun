@@ -16,6 +16,7 @@ const navigate = useNavigate();
 
   const handleCategoryClick = () => {
     navigate('/hewan-mamalia');
+    window.scrollTo(0, 0);
   };
 
   const categories = [

@@ -41,6 +41,7 @@ const EksperimenPerbandingan = () => {
   // Fungsi untuk menavigasi ke halaman "Kunci Jawaban"
   const handleLihatKunciJawaban = () => {
     navigate("/eksperimen-hasil"); // Pindah ke halaman Kunci Jawaban
+    window.scrollTo(0, 0);
   };
 
   return (

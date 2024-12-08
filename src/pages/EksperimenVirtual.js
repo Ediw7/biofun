@@ -17,8 +17,10 @@ const EksperimenVirtual = () => {
   const handleCategoryClick = (type) => {
     if (type === 'materi') {
       navigate('/eksperimen-materi');
+      window.scrollTo(0, 0);
     } else if (type === 'eksperimen') {
       navigate('/lab-eksperimen');
+      window.scrollTo(0, 0);
     }
   };
   

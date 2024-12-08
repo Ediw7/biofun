@@ -15,6 +15,7 @@ const BelajarManusia = () => {
 
   const handleCategoryClick = () => {
     navigate('/sistem-pencernaan');
+    window.scrollTo(0, 0);
   };
 
   const categories = [

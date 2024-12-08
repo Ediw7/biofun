@@ -15,6 +15,7 @@ const EksperimenGolonganDarah = () => {
 
   const handleNavigate = () => {
     navigate('/eksperimen-alat-bahan'); // Sesuaikan dengan rute tujuan
+    window.scrollTo(0, 0);
   };
 
   return (

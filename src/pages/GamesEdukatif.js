@@ -58,10 +58,13 @@ const GamesEdukatif = () => {
   const handlePlayClick = (game) => {
     if (game.category === 'kuis') {
       navigate('/game-quiz');
+      window.scrollTo(0, 0);
     } else if (game.category === 'puzzle') {
       navigate('/game-puzzle');
+      window.scrollTo(0, 0);
     } else if (game.category === 'kartu Memori') {
       navigate('/game-memori');
+      window.scrollTo(0, 0);
     }
   };
 
