@@ -84,6 +84,7 @@ const EksperimenAlatBahan = () => {
   const handleNavigate = () => {
     if (validateSelection()) {
       navigate("/eksperimen-puzzel");
+      window.scrollTo(0, 0);
     } else {
       setErrorMessage("Harap pilih semua alat dan bahan yang diperlukan!");
       setPopupVisible(true);
