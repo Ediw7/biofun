@@ -77,7 +77,7 @@ const GaleriTumbuhan = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-50">
       {/* Header Section */}
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -92,7 +92,7 @@ const GaleriTumbuhan = () => {
 
       {/* Gallery Section */}
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {plants.map((plant) => (
             <div
               key={plant.id}
@@ -103,7 +103,7 @@ const GaleriTumbuhan = () => {
               <img
                 src={plant.image}
                 alt={plant.name}
-                className="object-cover w-64 h-64 rounded-lg mb-4"
+                className="object-cover w-full h-64 rounded-lg mb-4"
               />
               <h3 className="text-lg font-bold text-gray-800">{plant.name}</h3>
               <p className="text-gray-600">{plant.description}</p>

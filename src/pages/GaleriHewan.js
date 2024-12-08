@@ -81,6 +81,28 @@ const GaleriHewan = () => {
       weight: '200 - 300 kg',
       origin: 'Asia',
     },
+    {
+      id: 7,
+      name: 'Jerapah',
+      image: 'https://asset.kompas.com/crops/M8tZZVU1-lgHxIPm1ZIF3m3pN7s=/0x0:1000x667/1200x800/data/photo/2017/09/16/2548005054.JPG',
+      description: 'Jerapah adalah mamalia darat dengan leher panjang yang ditemukan di Afrika.',
+      sound: '/audio/giraffe.mp3',
+      speed: '55 km/jam',
+      lifespan: '25 - 30 tahun',
+      weight: '800 - 1,200 kg',
+      origin: 'Afrika',
+    },
+    {
+      id: 8,
+      name: 'Zebra',
+      image: 'https://akcdn.detik.net.id/api/wm/2021/11/08/zebra_169.jpeg?w=650',
+      description: 'Zebra adalah mamalia dengan garis-garis hitam putih yang ditemukan di Afrika.',
+      sound: '/audio/zebra.mp3',
+      speed: '65 km/jam',
+      lifespan: '25 tahun',
+      weight: '300 - 400 kg',
+      origin: 'Afrika',
+    },
   ];
 
   const handleCardClick = (specie) => {
@@ -109,7 +131,7 @@ const GaleriHewan = () => {
         </div>
       </div>
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {species.map((specie) => (
             <div
               key={specie.id}
@@ -120,8 +142,7 @@ const GaleriHewan = () => {
               <img
                 src={specie.image}
                 alt={specie.name}
-                className="object-cover w-full h-full rounded-lg mb-4"
-                style={{ height: '250px', width: '250px' }}
+                className="object-cover w-full h-64 rounded-lg mb-4"
               />
               <button
                 onClick={(e) => {
@@ -172,9 +193,22 @@ const GaleriHewan = () => {
             </div>
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-4xl font-bold text-black hover:text-red-500 transition-colors duration-200"
+              className="absolute top-0 right-0 p-2 text-gray-500 hover:text-gray-700"
             >
-              &times;
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
           </div>
         </div>
