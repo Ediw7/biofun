@@ -64,10 +64,10 @@ const GamePuzzle = () => {
     const allCorrect = pieces.every((piece) => piece.currentIndex === piece.correctIndex);
     if (allCorrect && pieces.length > 0) {
       setIsGameOver(true);
-      toast.success('Selamat! Kamu berhasil menyusun puzzle dengan benar!', {
-        position: 'top-center',
+      toast.success("Selamat! Kamu berhasil menyusun puzzle dengan benar!", {
+        position: "top-center",
         autoClose: 3000,
-        theme: 'colored',
+        theme: "colored",
       });
     }
   }, [pieces]);
@@ -95,6 +95,11 @@ const GamePuzzle = () => {
     setIsGameOver(false);
   };
 
+  const handleExit = () => {
+    toast.success("Anda keluar dari permainan!", { autoClose: 2000 });
+    setTimeout(() => (window.location.href = '/games-edukatif'), 2000);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-blue-50 p-6">
       {/* Hero Section */}
@@ -108,12 +113,18 @@ const GamePuzzle = () => {
       {/* Kontainer Utama */}
       <div className="container mx-auto mt-6">
         {isGameOver && (
-          <div className="text-center mb-6">
+          <div className="text-center mb-6 space-x-4">
             <button
               onClick={handleRestart}
               className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 transition duration-200"
             >
               Main Lagi
+            </button>
+            <button
+              onClick={handleExit}
+              className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 transition duration-200"
+            >
+              Keluar
             </button>
           </div>
         )}
