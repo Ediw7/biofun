@@ -13,7 +13,7 @@ const alatList = [
 const bahanList = [
   { nama: "Serum Anti-A", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-A.png", required: true },
   { nama: "Serum Anti-B", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-B.png", required: true },
-  { nama: "Serum Anti-AB", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-AB.png", required: false },
+  { nama: "Serum Anti-AB", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-AB.png", required: true },
   { nama: "Serum Anti-D", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-D.png", required: true },
   { nama: "Alkohol 70%", image: "https://storage.googleapis.com/rxstorage/Product/large/Apotek_Online_Farmaku_com_Alkohol_70_Afiat_100_ml.jpg", required: false },
   { nama: "Biuret", image: "https://images.tokopedia.net/img/cache/700/product-1/2016/2/1/2446149/2446149_484c6515-a66c-4aaa-bb29-f54abc0ba05e.jpg", required: false },
@@ -22,8 +22,8 @@ const bahanList = [
 const darahList = [
   { nama: "Darah Pasien 1", image: '/gambar/blood.png', required: true },
   { nama: "Darah Pasien 2", image: '/gambar/blood.png', required: true },
-  { nama: "Darah Pendonor 1", image: '/gambar/blood.png', required: false },
-  { nama: "Darah Pendonor 2", image: '/gambar/blood.png', required: false },
+  { nama: "Darah Pendonor 1", image: '/gambar/blood.png', required: true },
+  { nama: "Darah Pendonor 2", image: '/gambar/blood.png', required: true },
 ];
 
 const EksperimenAlatBahan = () => {
