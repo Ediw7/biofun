@@ -148,7 +148,7 @@ const EksperimenAlatBahan = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Pilih Alat dan Bahan Eksperimen
           </h1>
-          <p className="text-xl md:text-2xl font-semibold mb-4">
+          <p className="text-xl mb-4">
             Persiapkan alat dan bahan untuk memulai eksperimen Anda dengan memilih item berikut.
           </p>
         </div>
