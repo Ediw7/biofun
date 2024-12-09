@@ -2,16 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const EksperimenPerbandingan = () => {
-  const [selectedGolDar, setSelectedGolDar] = useState([
-    null, // Golongan darah pasien 1
-    null, // Golongan darah pasien 2
-    null, // Golongan darah pendonor 1
-    null, // Golongan darah pendonor 2
-  ]);
-
+  const [selectedGolDar, setSelectedGolDar] = useState([null]); // Hanya untuk pasien 1
   const golonganDarahOptions = ["A", "B", "AB", "O"];
   const [selectedPendonor, setSelectedPendonor] = useState([null, null]);
-
   const [showPopup, setShowPopup] = useState(false);
   
   // Menambahkan hook useNavigate untuk melakukan navigasi
@@ -69,32 +62,72 @@ const EksperimenPerbandingan = () => {
             </tr>
           </thead>
           <tbody>
-            {[...Array(4)].map((_, index) => (
-              <tr key={index}>
-                <td className="border p-4 text-center">
-                  {index < 2 ? `Pasien ${index + 1}` : `Pendonor ${index - 1}`}
-                </td>
-                {["+", "-", "+", "-"].map((val, colIndex) => (
-                  <td key={colIndex} className="border p-4 text-center">
-                    {val}
-                  </td>
-                ))}
-                <td className="border p-4 text-center">
-                  <select
-                    value={selectedGolDar[index] || ""}
-                    onChange={(e) => handleGolDarChange(index, e.target.value)}
-                    className="border border-gray-300 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
-                  >
-                    <option value="">Pilih Darah</option>
-                    {golonganDarahOptions.map((gol, golIndex) => (
-                      <option key={golIndex} value={gol}>
-                        {gol}
-                      </option>
-                    ))}
-                  </select>
-                </td>
-              </tr>
-            ))}
+            {/* Pasien 1 */}
+            <tr>
+              <td className="border p-4 text-center">Pasien</td>
+              <td className="border p-4 text-center">+</td>
+              <td className="border p-4 text-center">-</td>
+              <td className="border p-4 text-center">+</td>
+              <td className="border p-4 text-center">-</td>
+              <td className="border p-4 text-center">
+                <select
+                  value={selectedGolDar[0] || ""}
+                  onChange={(e) => handleGolDarChange(0, e.target.value)}
+                  className="border border-gray-300 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+                >
+                  <option value="">Pilih Gol. Darah</option>
+                  {golonganDarahOptions.map((gol, golIndex) => (
+                    <option key={golIndex} value={gol}>
+                      {gol}
+                    </option>
+                  ))}
+                </select>
+              </td>
+            </tr>
+            {/* Pendonor 1 */}
+            <tr>
+              <td className="border p-4 text-center">Pendonor 1</td>
+              <td className="border p-4 text-center">-</td>
+              <td className="border p-4 text-center">-</td>
+              <td className="border p-4 text-center">-</td>
+              <td className="border p-4 text-center">-</td>
+              <td className="border p-4 text-center">
+                <select
+                  value={selectedPendonor[0] || ""}
+                  onChange={(e) => handlePendonorChange(0, e.target.value)}
+                  className="border border-gray-300 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+                >
+                  <option value="">Pilih Gol. Darah</option>
+                  {golonganDarahOptions.map((gol, golIndex) => (
+                    <option key={golIndex} value={gol}>
+                      {gol}
+                    </option>
+                  ))}
+                </select>
+              </td>
+            </tr>
+            {/* Pendonor 2 */}
+            <tr>
+              <td className="border p-4 text-center">Pendonor 2</td>
+              <td className="border p-4 text-center">-</td>
+              <td className="border p-4 text-center">+</td>
+              <td className="border p-4 text-center">+</td>
+              <td className="border p-4 text-center">+</td>
+              <td className="border p-4 text-center">
+                <select
+                  value={selectedPendonor[1] || ""}
+                  onChange={(e) => handlePendonorChange(1, e.target.value)}
+                  className="border border-gray-300 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+                >
+                  <option value="">Pilih Gol. Darah</option>
+                  {golonganDarahOptions.map((gol, golIndex) => (
+                    <option key={golIndex} value={gol}>
+                      {gol}
+                    </option>
+                  ))}
+                </select>
+              </td>
+            </tr>
           </tbody>
         </table>
         <p className="mt-4 text-sm text-center text-gray-600">
@@ -102,26 +135,25 @@ const EksperimenPerbandingan = () => {
         </p>
       </div>
 
-      {/* Pilih Pendonor */}
+     {/* Pilih Pendonor */}
       <div className="bg-white p-6 rounded-2xl shadow-xl mb-8">
         <h2 className="text-lg font-semibold text-center mb-6">
           Pilih Pendonor untuk Pasien
         </h2>
-        {[...Array(2)].map((_, index) => (
-          <div key={index} className="flex justify-between items-center mb-4">
-            <p className="text-gray-700">Pasien {index + 1}</p>
-            <select
-              value={selectedPendonor[index] || ""}
-              onChange={(e) => handlePendonorChange(index, e.target.value)}
-              className="border border-gray-300 p-2 rounded-xl w-2/3 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            >
-              <option value="">Pilih Pendonor</option>
-              <option value="1">Pendonor 1</option>
-              <option value="2">Pendonor 2</option>
-            </select>
-          </div>
-        ))}
+        <div className="flex justify-between items-center mb-4">
+          <p className="text-gray-700">Pasien</p>
+          <select
+            value={selectedPendonor[0] || ""}
+            onChange={(e) => handlePendonorChange(0, e.target.value)}
+            className="border border-gray-300 p-2 rounded-xl w-2/3 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          >
+            <option value="">Pilih Pendonor</option>
+            <option value="1">Pendonor 1</option>
+            <option value="2">Pendonor 2</option>
+          </select>
+        </div>
       </div>
+
 
       {/* Button Lanjut */}
       <div className="mt-8 text-center">

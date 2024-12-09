@@ -155,13 +155,13 @@ const TabelGolonganDarah = () => {
           <div className="text-xs md:text-sm mb-4">
             <h3 className="font-semibold text-purple-600">Instruksi Pasien</h3>
             <p className="mb-2">
-            <strong>Pasien:</strong> Tidak menggumpal, Menggumpal, Tidak Menggumpal, Menggumpal<br />
+            <strong>Pasien:</strong> Menggumpal, Tidak Menggumpal, Menggumpal, Tidak menggumpal<br />
             </p>
           </div>
           <div className="text-xs md:text-sm mb-4">
             <h3 className="font-semibold text-purple-600">Instruksi Pendonor</h3>
             <p className="mb-2">
-              <strong>Pendonor 1:</strong> Menggumpal, Menggumpal, Menggumpal, Menggumpal<br />
+              <strong>Pendonor 1:</strong> Tidak menggumpal, Tidak menggumpal, Tidak menggumpal, Tidak menggumpal<br />
               <strong>Pendonor 2:</strong> Tidak menggumpal, Menggumpal, Menggumpal, Menggumpal<br />
             </p>
           </div>

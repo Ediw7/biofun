@@ -41,53 +41,56 @@ const EksperimenHasil = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-teal-200 p-6">
-      {/* Header */}
-      <div className="bg-yellow-400 p-4 rounded flex items-center justify-between">
-        <h1 className="text-xl font-bold text-gray-800">
-          Perbandingan Jawaban Kamu dan Kunci Jawaban
-        </h1>
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-blue-50 p-4">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white mb-8 py-6 rounded-2xl shadow-2xl">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-2xl md:text-4xl font-bold mb-2">Uji Golongan Darah</h1>
+          <p className="text-sm md:text-base mb-2">
+            Ikuti petunjuk di bawah ini untuk menguji golongan darah pasien dan pendonor.
+          </p>
+        </div>
       </div>
 
       {/* Tabel Perbandingan */}
-      <div className="bg-white mt-6 p-4 rounded shadow-lg">
-        <table className="w-full border border-gray-300">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="p-2 border">Kategori</th>
-              <th className="p-2 border">Anti-A</th>
-              <th className="p-2 border">Anti-B</th>
-              <th className="p-2 border">Anti-AB</th>
-              <th className="p-2 border">Anti-D</th>
-              <th className="p-2 border">Gol. Darah</th>
+      <div className="bg-white p-6 rounded-2xl shadow-xl">
+        <table className="w-full border-collapse border border-gray-300">
+          <thead className="bg-gray-100">
+            <tr>
+              <th className="p-4 border">Kategori</th>
+              <th className="p-4 border text-center">Anti-A</th>
+              <th className="p-4 border text-center">Anti-B</th>
+              <th className="p-4 border text-center">Anti-AB</th>
+              <th className="p-4 border text-center">Anti-D</th>
+              <th className="p-4 border text-center">Gol. Darah</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item) => (
               <React.Fragment key={item.id}>
-                <tr className="bg-gray-50">
+                <tr className="bg-gray-100">
                   <td
                     rowSpan="2"
-                    className="border p-2 text-center font-bold bg-yellow-100"
+                    className="border p-4 text-center font-semibold bg-gray-100"
                   >
                     {item.kategori}
                   </td>
                   {/* Jawaban Kamu */}
                   {item.jawabanKamu.map((jawaban, index) => (
-                    <td key={index} className="border p-2 text-center">
+                    <td key={index} className="border p-4 text-center">
                       {jawaban}
                     </td>
                   ))}
-                  <td className="border p-2 text-center">{item.golDarahKamu}</td>
+                  <td className="border p-4 text-center">{item.golDarahKamu}</td>
                 </tr>
                 <tr>
                   {/* Kunci Jawaban */}
                   {item.kunciJawaban.map((jawaban, index) => (
                     <td
                       key={index}
-                      className={`border p-2 text-center ${
+                      className={`border p-4 text-center ${
                         item.jawabanKamu[index] === jawaban
-                          ? "bg-green-100"
+                          ? "bg-white"
                           : "bg-red-100"
                       }`}
                     >
@@ -95,9 +98,9 @@ const EksperimenHasil = () => {
                     </td>
                   ))}
                   <td
-                    className={`border p-2 text-center ${
+                    className={`border p-4 text-center ${
                       item.golDarahKamu === item.golDarahKunci
-                        ? "bg-green-100"
+                        ? "bg-white"
                         : "bg-red-100"
                     }`}
                   >
@@ -108,16 +111,17 @@ const EksperimenHasil = () => {
             ))}
           </tbody>
         </table>
-        <p className="mt-2 text-sm text-center text-gray-600">
+
+        <p className="mt-4 text-sm text-center text-gray-600">
           (+) Menggumpal &nbsp; | &nbsp; (-) Tidak Menggumpal &nbsp; | &nbsp;{" "}
           (warna hijau) Kunci Jawaban
         </p>
       </div>
 
       {/* Button Kembali */}
-      <div className="mt-6 text-center">
+      <div className="mt-8 text-center">
         <button
-          className="bg-orange-500 text-white px-8 py-3 rounded-lg shadow hover:bg-orange-600 transition"
+          className="bg-orange-500 text-white px-8 py-3 rounded-xl shadow-lg hover:bg-orange-600 transition-all"
           onClick={() => navigate("/eksperimen-golongan-darah")}
         >
           Kembali
