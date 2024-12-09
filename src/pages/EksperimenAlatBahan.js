@@ -21,7 +21,6 @@ const bahanList = [
 
 const darahList = [
   { nama: "Darah Pasien 1", image: '/gambar/blood.png', required: true },
-  { nama: "Darah Pasien 2", image: '/gambar/blood.png', required: true },
   { nama: "Darah Pendonor 1", image: '/gambar/blood.png', required: true },
   { nama: "Darah Pendonor 2", image: '/gambar/blood.png', required: true },
 ];
@@ -103,7 +102,7 @@ const EksperimenAlatBahan = () => {
       <h3 className="text-xl sm:text-2xl font-extrabold text-purple-800 text-center">{title}</h3>
       <button 
         onClick={title === "Alat" ? showRequiredAlatPopup : showRequiredBahanPopup}
-        className="bg-purple-500 text-white px-4 sm:px-6 py-2 rounded-lg hover:bg-purple-600 transition transform hover:scale-105 shadow-md w-full sm:w-auto text-center"
+        className="bg-purple-600 text-white px-4 sm:px-6 py-2 rounded-lg hover:bg-purple-600 transition transform hover:scale-105 shadow-md w-full sm:w-auto text-center"
       >
         Lihat {title} Wajib
       </button>
@@ -179,7 +178,7 @@ const EksperimenAlatBahan = () => {
         <div className="text-center mt-6 sm:mt-8">
           <button
             onClick={handleNavigate}
-            className="bg-purple-500 text-white px-6 sm:px-10 py-2 sm:py-3 rounded-lg hover:bg-purple-600 transition transform hover:scale-105 shadow-xl w-full sm:w-auto"
+            className="bg-purple-600 text-white px-6 sm:px-10 py-2 sm:py-3 rounded-lg hover:bg-purple-600 transition transform hover:scale-105 shadow-xl w-full sm:w-auto"
           >
             Mulai Eksperimen
           </button>
