@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 const alatList = [
   { nama: "Pipet Tetes", image: "https://cdn.pixabay.com/photo/2016/03/31/19/46/dropper-1295283_640.png", required: true },
-  { nama: "Tusuk Gigi", image: "https://png.pngtree.com/png-clipart/20231212/original/pngtree-wooden-toothpicks-in-a-glass-the-isolated-background-to-brush-teeth-png-image_13821834.png", required: false },
+  { nama: "Tusuk Gigi", image: "https://png.pngtree.com/png-clipart/20231212/original/pngtree-wooden-toothpicks-in-a-glass-the-isolated-background-to-brush-teeth-png-image_13821834.png", required: true },
   { nama: "Kaca Preparat", image: "https://images.tokopedia.net/img/cache/200-square/product-1/2019/3/20/129383/129383_6d8ca554-2b8d-4a59-9f10-4b720b72be9d.jpg", required: true },
   { nama: "Mortar & Pistil", image: "https://www.thegifthunter.co.nz/wp-content/uploads/Pestle-and-Mortar-400x480.jpg", required: false },
-  { nama: "Tabung Reaksi", image: "https://static-siplah.blibli.com/data/images/SCFA-0031-00289/1dcc870e-ac8a-42e6-b8c3-c4279d67bb2f.jpeg", required: true },
+  { nama: "Tabung Reaksi", image: "https://static-siplah.blibli.com/data/images/SCFA-0031-00289/1dcc870e-ac8a-42e6-b8c3-c4279d67bb2f.jpeg", required: false },
   { nama: "Erlenmeyer", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_LZ3d3qePlS-QtfhyWuxzojFJCjgmJ0koMQ&s", required: false },
 ];
 
