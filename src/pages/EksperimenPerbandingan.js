@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate dari react-router-dom
+import { useNavigate } from "react-router-dom";
 
 const EksperimenPerbandingan = () => {
   const [selectedGolDar, setSelectedGolDar] = useState([
@@ -30,7 +30,6 @@ const EksperimenPerbandingan = () => {
   };
 
   const handleLanjut = () => {
-    // Periksa validasi data di sini (opsional)
     setShowPopup(true);
   };
 
@@ -45,43 +44,46 @@ const EksperimenPerbandingan = () => {
   };
 
   return (
-    <div className="min-h-screen bg-teal-200 p-6">
-      {/* Header */}
-      <div className="bg-yellow-400 p-4 rounded flex items-center">
-        <h1 className="text-xl font-bold text-gray-800">
-          Tentukan Golongan Darah dan Kecocokan Pendonor
-        </h1>
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-blue-50 p-4">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white mb-8 py-6 rounded-2xl shadow-2xl">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-2xl md:text-4xl font-bold mb-2">Uji Golongan Darah</h1>
+          <p className="text-sm md:text-base mb-2">
+            Ikuti petunjuk di bawah ini untuk menguji golongan darah pasien dan pendonor.
+          </p>
+        </div>
       </div>
 
       {/* Tabel Golongan Darah */}
-      <div className="bg-white mt-6 p-4 rounded shadow-lg">
+      <div className="bg-white p-6 rounded-2xl shadow-xl mb-8">
         <table className="w-full border border-gray-300">
-          <thead>
+          <thead className="bg-gray-100">
             <tr>
-              <th className="p-2 border">Pasien / Pendonor</th>
-              <th className="p-2 border">Anti-A</th>
-              <th className="p-2 border">Anti-B</th>
-              <th className="p-2 border">Anti-AB</th>
-              <th className="p-2 border">Anti-D</th>
-              <th className="p-2 border">Gol. Darah</th>
+              <th className="p-4 border">Pasien / Pendonor</th>
+              <th className="p-4 border">Anti-A</th>
+              <th className="p-4 border">Anti-B</th>
+              <th className="p-4 border">Anti-AB</th>
+              <th className="p-4 border">Anti-D</th>
+              <th className="p-4 border">Gol. Darah</th>
             </tr>
           </thead>
           <tbody>
             {[...Array(4)].map((_, index) => (
               <tr key={index}>
-                <td className="border p-2 text-center">
+                <td className="border p-4 text-center">
                   {index < 2 ? `Pasien ${index + 1}` : `Pendonor ${index - 1}`}
                 </td>
                 {["+", "-", "+", "-"].map((val, colIndex) => (
-                  <td key={colIndex} className="border p-2 text-center">
+                  <td key={colIndex} className="border p-4 text-center">
                     {val}
                   </td>
                 ))}
-                <td className="border p-2 text-center">
+                <td className="border p-4 text-center">
                   <select
                     value={selectedGolDar[index] || ""}
                     onChange={(e) => handleGolDarChange(index, e.target.value)}
-                    className="border border-gray-300 p-1 rounded"
+                    className="border border-gray-300 p-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
                   >
                     <option value="">Pilih Darah</option>
                     {golonganDarahOptions.map((gol, golIndex) => (
@@ -95,14 +97,14 @@ const EksperimenPerbandingan = () => {
             ))}
           </tbody>
         </table>
-        <p className="mt-2 text-sm text-center">
+        <p className="mt-4 text-sm text-center text-gray-600">
           (+) Menggumpal &nbsp; | &nbsp; (-) Tidak Menggumpal
         </p>
       </div>
 
       {/* Pilih Pendonor */}
-      <div className="bg-white mt-6 p-4 rounded shadow-lg">
-        <h2 className="text-lg font-bold text-center mb-4">
+      <div className="bg-white p-6 rounded-2xl shadow-xl mb-8">
+        <h2 className="text-lg font-semibold text-center mb-6">
           Pilih Pendonor untuk Pasien
         </h2>
         {[...Array(2)].map((_, index) => (
@@ -111,7 +113,7 @@ const EksperimenPerbandingan = () => {
             <select
               value={selectedPendonor[index] || ""}
               onChange={(e) => handlePendonorChange(index, e.target.value)}
-              className="border border-gray-300 p-2 rounded w-2/3"
+              className="border border-gray-300 p-2 rounded-xl w-2/3 focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <option value="">Pilih Pendonor</option>
               <option value="1">Pendonor 1</option>
@@ -122,10 +124,10 @@ const EksperimenPerbandingan = () => {
       </div>
 
       {/* Button Lanjut */}
-      <div className="mt-6 text-center">
+      <div className="mt-8 text-center">
         <button
           onClick={handleLanjut}
-          className="bg-orange-500 text-white px-8 py-3 rounded-lg shadow hover:bg-orange-600 transition"
+          className="bg-purple-600 text-white px-10 py-3 rounded-xl shadow-lg hover:bg-purple-700 transition"
         >
           Lanjut
         </button>
@@ -134,13 +136,13 @@ const EksperimenPerbandingan = () => {
       {/* Popup */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white w-80 p-6 rounded shadow-lg text-center relative">
-            <h2 className="text-lg font-bold text-red-500 mb-4">
+          <div className="bg-white w-96 p-6 rounded-2xl shadow-lg text-center relative">
+            <h2 className="text-xl font-bold text-red-500 mb-4">
               HASIL ANALISIS KURANG TEPAT
             </h2>
             <button
-              className="bg-orange-400 px-6 py-2 text-white rounded-lg hover:bg-orange-500 transition"
-              onClick={handleLihatKunciJawaban} // Menambahkan fungsi navigasi ke halaman Kunci Jawaban
+              className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition"
+              onClick={handleLihatKunciJawaban}
             >
               LIHAT KUNCI JAWABAN
             </button>
