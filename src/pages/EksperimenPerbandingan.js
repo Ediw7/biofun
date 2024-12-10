@@ -186,44 +186,64 @@ const EksperimenPerbandingan = () => {
         </button>
       </div>
 
-      {/* Popup - Responsive */}
-      {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white w-80 md:w-96 p-4 md:p-6 rounded-2xl shadow-lg text-center relative">
-            {popupType === 'benar' ? (
-              <>
-                <h2 className="text-lg md:text-xl font-bold text-green-500 mb-4">
-                  SELAMAT! JAWABAN ANDA BENAR
-                </h2>
-                <button
-                  className="bg-green-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl hover:bg-green-600 transition"
-                  onClick={handleClosePopup}
-                >
-                  TUTUP
-                </button>
-              </>
-            ) : (
-              <>
-                <h2 className="text-lg md:text-xl font-bold text-red-500 mb-4">
-                  HASIL ANALISIS KURANG TEPAT
-                </h2>
-                <button
-                  className="bg-orange-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl hover:bg-orange-600 transition"
-                  onClick={handleLihatKunciJawaban}
-                >
-                  LIHAT KUNCI JAWABAN
-                </button>
-                <button
-                  className="bg-green-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl hover:bg-green-600 transition"
-                  onClick={handleClosePopup}
-                >
-                  TUTUP
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
+     {/* Popup - Responsive and Elegant */}
+{showPopup && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 sm:p-8 border-4 border-blue-400 relative">
+      {/* Close Button */}
+      <button
+        onClick={handleClosePopup}
+        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+        aria-label="Close"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      {/* Header */}
+      <h3
+        className={`text-2xl font-bold mb-4 ${
+          popupType === 'benar' ? 'text-green-500' : 'text-red-500'
+        }`}
+      >
+        {popupType === 'benar' ? 'SELAMAT! JAWABAN ANDA BENAR' : 'HASIL ANALISIS KURANG TEPAT'}
+      </h3>
+      {/* Content */}
+      <div className="text-gray-700 text-center mb-6">
+        {popupType === 'benar'
+          ? 'Anda telah memberikan jawaban yang tepat. Teruskan usaha yang baik ini!'
+          : 'Silakan lihat kunci jawaban untuk memahami kesalahan Anda.'}
+      </div>
+      {/* Buttons */}
+      <div className="space-y-4">
+        {popupType === 'benar' ? (
+          <button
+            onClick={handleClosePopup}
+            className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition transform hover:scale-105"
+          >
+            Tutup
+          </button>
+        ) : (
+          <>
+            <button
+              onClick={handleLihatKunciJawaban}
+              className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition transform hover:scale-105"
+            >
+              Lihat Kunci Jawaban
+            </button>
+            <button
+              onClick={handleClosePopup}
+              className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition transform hover:scale-105"
+            >
+              Tutup
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
