@@ -7,7 +7,7 @@ const TabelGolonganDarah = () => {
   const serumOptions = [
     { nama: "Serum Anti-A", image: "gambar/seruma.png" },
     { nama: "Serum Anti-B", image: "gambar/serumb.png" },
-    { nama: "Serum Anti-AB", image: "hgambar/serumab.png" },
+    { nama: "Serum Anti-AB", image: "gambar/serumab.png" },
     { nama: "Serum Anti-D", image: "gambar/serumd.png" },
   ];
 
