@@ -24,19 +24,19 @@ const EksperimenMateri = () => {
     {
       id:'goldar',
       name: 'Materi Eksperimen 1: Golongan Darah',
-      icon: '🧪',
+      icon: '💉',
       description: 'Pelajari berbagai reaksi kimia di dunia nyata secara virtual.',
     },
     {
       id: 'eksperimen2',
       name: 'Materi Eksperimen 2: Pertumbuhan Kecambah',
-      icon: '⚛️',
+      icon: '🌱',
       description: 'Praktekkan pertumbuhan kecambah dengan alat virtual.',
     },
     {
       id: 'eksperimen3',
       name: 'Materi Eksperimen 3: Daur Hidup Serangga',
-      icon: '🧬',
+      icon: '🐛',
       description: 'Mengamati proses metamorfosis serangga.',
     },
   ];

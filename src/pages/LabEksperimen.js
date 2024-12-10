@@ -22,24 +22,25 @@ const LabEksperimen = () => {
 
   const experiments = [
     {
-      id:'goldar',
+      id: 'goldar',
       name: 'Eksperimen 1: Golongan Darah',
-      icon: '🧪',
+      icon: '💉', 
       description: 'Pelajari berbagai reaksi kimia di dunia nyata secara virtual.',
     },
     {
       id: 'eksperimen2',
       name: 'Eksperimen 2: Pertumbuhan Kecambah',
-      icon: '⚛️',
+      icon: '🌱', 
       description: 'Praktekkan pertumbuhan kecambah dengan alat virtual.',
     },
     {
       id: 'eksperimen3',
       name: 'Eksperimen 3: Daur Hidup Serangga',
-      icon: '🧬',
+      icon: '🐛', 
       description: 'Mengamati proses metamorfosis serangga.',
     },
   ];
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-blue-50">
