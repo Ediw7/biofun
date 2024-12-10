@@ -17,17 +17,14 @@ const TabelGolonganDarah = () => {
   ];
 
   const [selectedSerum, setSelectedSerum] = useState(0);
-  const [patientAgglutinationStates, setPatientAgglutinationStates] = useState(
-    [0, 0, 0, 0] // tidak menggumpal, menggumpal, tidak, menggumpal
-  );
-  const [donorAgglutinationStates, setDonorAgglutinationStates] = useState(
-    [
-      ...Array(serumOptions.length).fill(0), // Pendonor 1: menggumpal semua
-      [0, 0, 0, 0] // Pendonor 2: tidak menggumpal, menggumpal, menggumpal, menggumpal
-    ].flat()
-  );
-
+  const [patientAgglutinationStates, setPatientAgglutinationStates] = useState([0, 0, 0, 0]);
+  const [donorAgglutinationStates, setDonorAgglutinationStates] = useState([
+    0, 0, 0, 0, // Pendonor 1
+    0, 0, 0, 0, // Pendonor 2
+  ]);
   const [showInstruction, setShowInstruction] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   const handleSerumClick = (index) => {
     setSelectedSerum(index);
@@ -45,11 +42,33 @@ const TabelGolonganDarah = () => {
     );
   };
 
-  const handleNavigate = () => {
-    navigate("/eksperimen-perbandingan");
+  const checkMatch = () => {
+    const patientExpected = [1, 0, 1, 0];
+    const donorExpected = [
+      [0, 0, 0, 0], // Pendonor 1
+      [0, 1, 1, 1], // Pendonor 2
+    ];
+
+    const isPatientMatch = patientAgglutinationStates.every((state, i) => state === patientExpected[i]);
+    const isDonorMatch = donorExpected.every((donor, donorIndex) =>
+      donor.every((state, i) => state === donorAgglutinationStates[donorIndex * 4 + i])
+    );
+
+    if (isPatientMatch && isDonorMatch) {
+      setShowSuccessPopup(true);
+      setShowErrorPopup(false);
+    } else {
+      setShowSuccessPopup(false);
+      setShowErrorPopup(true);
+    }
   };
 
-  const renderTable = (title, renderData, handleAgglutinationClick, agglutinationStates) => (
+  const handleNextStep = () => {
+    checkMatch();
+    if (showSuccessPopup) navigate("/eksperimen-perbandingan");
+  };
+
+  const renderTable = (title, handleAgglutinationClick, agglutinationStates) => (
     <div className="w-full bg-white shadow-lg rounded p-4 mb-4">
       <h2 className="text-lg font-bold mb-4 text-center">{title}</h2>
       <div className="overflow-x-auto">
@@ -73,34 +92,26 @@ const TabelGolonganDarah = () => {
             </tr>
           </thead>
           <tbody>
-            {renderData.map((_, donorIndex) => (
-              <tr key={donorIndex}>
+            {/* Tampilkan hanya 1 baris untuk Pasien */}
+            {title.includes("Pasien") && (
+              <tr>
                 <td className="border px-2 py-1 text-center">
                   <div className="flex flex-col items-center">
                     <img
-                      src={title.includes("Pasien") 
-                        ? "https://png.pngtree.com/png-clipart/20230815/original/pngtree-child-injured-in-bike-accident-2d-vector-isolated-illustration-picture-image_7945424.png"
-                        : `/gambar/pendonor.jpg`
-                      }
-                      alt={title.includes("Pasien") ? "Pasien" : `Pendonor ${donorIndex + 1}`}
+                      src="https://png.pngtree.com/png-clipart/20230815/original/pngtree-child-injured-in-bike-accident-2d-vector-isolated-illustration-picture-image_7945424.png"
+                      alt="Pasien"
                       className="w-16 h-16 mx-auto"
                     />
-                    <p className="mt-1 text-xs font-medium">
-                      {title.includes("Pasien") ? "Pasien" : `Pendonor ${donorIndex + 1}`}
-                    </p>
+                    <p className="mt-1 text-xs font-medium">Pasien</p>
                   </div>
                 </td>
                 {serumOptions.map((_, colIndex) => {
-                  const cellIndex = title.includes("Pasien") 
-                    ? colIndex 
-                    : donorIndex * serumOptions.length + colIndex;
-                  const cellState = agglutinationOptions[agglutinationStates[cellIndex]] || {};
-
+                  const cellState = agglutinationOptions[agglutinationStates[colIndex]] || {};
                   return (
                     <td
                       key={colIndex}
                       className="border px-2 py-1 text-center cursor-pointer"
-                      onClick={() => handleAgglutinationClick(cellIndex)}
+                      onClick={() => handleAgglutinationClick(colIndex)}
                     >
                       <img
                         src={cellState.image}
@@ -112,12 +123,51 @@ const TabelGolonganDarah = () => {
                   );
                 })}
               </tr>
-            ))}
+            )}
+  
+            {/* Tampilkan baris untuk Pendonor */}
+            {title.includes("Pendonor") && (
+              <>
+                {[...Array(2)].map((_, donorIndex) => (
+                  <tr key={donorIndex}>
+                    <td className="border px-2 py-1 text-center">
+                      <div className="flex flex-col items-center">
+                        <img
+                          src={`/gambar/pendonor.jpg`}
+                          alt={`Pendonor ${donorIndex + 1}`}
+                          className="w-16 h-16 mx-auto"
+                        />
+                        <p className="mt-1 text-xs font-medium">Pendonor {donorIndex + 1}</p>
+                      </div>
+                    </td>
+                    {serumOptions.map((_, colIndex) => {
+                      const cellIndex = donorIndex * serumOptions.length + colIndex;
+                      const cellState = agglutinationOptions[agglutinationStates[cellIndex]] || {};
+                      return (
+                        <td
+                          key={colIndex}
+                          className="border px-2 py-1 text-center cursor-pointer"
+                          onClick={() => handleAgglutinationClick(cellIndex)}
+                        >
+                          <img
+                            src={cellState.image}
+                            alt={cellState.status}
+                            className="w-10 h-10 mx-auto"
+                          />
+                          <p className="mt-1 text-xs">{cellState.status}</p>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </>
+            )}
           </tbody>
         </table>
       </div>
     </div>
   );
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50 to-blue-50 p-4">
@@ -140,66 +190,86 @@ const TabelGolonganDarah = () => {
       {/* Modal Instruksi */}
       {showInstruction && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
-        <div className="bg-white p-4 rounded-lg shadow-lg w-full max-w-md">
-          <h2 className="text-lg font-bold mb-2 text-purple-600">Instruksi</h2>
-          <div className="text-xs md:text-sm mb-4">
+          <div className="bg-white p-4 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-lg font-bold mb-2 text-purple-600">Instruksi</h2>
+            <div className="text-xs md:text-sm mb-4">
             <h3 className="font-semibold text-purple-600">Instruksi Umum</h3>
-            <p className="mb-2">
-              <strong>1. BACA SEMUA INSTRUKSI DENGAN TELITI.<br /></strong>
-              2. Klik gambar darah untuk mengubah tipe darah pada tabel.<br />
-              3. Amati perubahan.<br />
-              4. Ulangi tahapan pada bagian uji golongan darah Pendonor.<br />
-              5. Klik tombol "Tahap Selanjutnya" untuk melanjutkan jika tipe darah sudah sesuai.<br />
-            </p>
+                <p className="mb-2">
+                  <strong>1. BACA SEMUA INSTRUKSI DENGAN TELITI.<br /></strong>
+                  2. Klik gambar darah untuk mengubah tipe darah pada tabel.<br />
+                  3. Amati perubahan.<br />
+                  4. Ulangi tahapan pada bagian uji golongan darah Pendonor.<br />
+                  5. Klik tombol "Tahap Selanjutnya" untuk melanjutkan jika tipe darah sudah sesuai.<br />
+                </p>
+              </div>
+              <div className="text-xs md:text-sm mb-4">
+                <h3 className="font-semibold text-purple-600">Instruksi Pasien</h3>
+                <p className="mb-2">
+                <strong>Pasien:</strong> Menggumpal, Tidak Menggumpal, Menggumpal, Tidak menggumpal<br />
+                </p>
+              </div>
+              <div className="text-xs md:text-sm mb-4">
+                <h3 className="font-semibold text-purple-600">Instruksi Pendonor</h3>
+                <p className="mb-2">
+                  <strong>Pendonor 1:</strong> Tidak menggumpal, Tidak menggumpal, Tidak menggumpal, Tidak menggumpal<br />
+                  <strong>Pendonor 2:</strong> Tidak menggumpal, Menggumpal, Menggumpal, Menggumpal<br />
+                </p>
+            </div>
+            <button
+              onClick={() => setShowInstruction(false)}
+              className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 w-full"
+            >
+              Tutup
+            </button>
           </div>
-          <div className="text-xs md:text-sm mb-4">
-            <h3 className="font-semibold text-purple-600">Instruksi Pasien</h3>
-            <p className="mb-2">
-            <strong>Pasien:</strong> Menggumpal, Tidak Menggumpal, Menggumpal, Tidak menggumpal<br />
-            </p>
-          </div>
-          <div className="text-xs md:text-sm mb-4">
-            <h3 className="font-semibold text-purple-600">Instruksi Pendonor</h3>
-            <p className="mb-2">
-              <strong>Pendonor 1:</strong> Tidak menggumpal, Tidak menggumpal, Tidak menggumpal, Tidak menggumpal<br />
-              <strong>Pendonor 2:</strong> Tidak menggumpal, Menggumpal, Menggumpal, Menggumpal<br />
-            </p>
-          </div>
-          <button
-            onClick={() => setShowInstruction(false)}
-            className="bg-red-500 text-white px-3 py-1 rounded shadow hover:bg-red-600 transition text-sm"
-          >
-            Tutup
-          </button>
         </div>
-      </div>
-      
       )}
 
-      {/* Konten */}
-      <div className="space-y-4">
-        {renderTable(
-          "Uji Lab Golongan Darah Pasien", 
-          [1], 
-          handlePatientAgglutinationClick, 
-          patientAgglutinationStates
-        )}
-        {renderTable(
-          "Uji Lab Golongan Darah Pendonor", 
-          [1, 1], 
-          handleDonorAgglutinationClick, 
-          donorAgglutinationStates
-        )}
+      {/* Tabel Golongan Darah */}
+      {renderTable("Golongan Darah Pasien", handlePatientAgglutinationClick, patientAgglutinationStates)}
+      {renderTable("Golongan Darah Pendonor", handleDonorAgglutinationClick, donorAgglutinationStates)}
 
-        {/* Tombol Tahap Selanjutnya */}
-        <div className="text-center">
-          <button
-            onClick={handleNavigate}
-            className="bg-purple-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-purple-700 transition"
-          >
-            Tahap Selanjutnya
-          </button>
+     {/* Popup Success */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 p-4">
+          <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-full max-w-sm text-center">
+            <h3 className="text-2xl font-bold text-green-500 mb-4">Proses Berhasil!</h3>
+            <p className="text-gray-700 mb-6">Proses golongan darah berhasil disimpan.</p>
+            <button
+              onClick={handleNextStep}
+              className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition transform hover:scale-105"
+            >
+              Lanjutkan
+            </button>
+          </div>
         </div>
+      )}
+
+      {/* Popup Error */}
+      {showErrorPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 p-4">
+          <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg w-full max-w-sm text-center">
+            <h3 className="text-2xl font-bold text-orange-500 mb-4">Terjadi Kesalahan</h3>
+            <p className="text-gray-700 mb-6">Golongan darah tidak sesuai, silakan coba lagi.</p>
+            <button
+              onClick={() => setShowErrorPopup(false)}
+              className="w-full bg-orange-500 text-white py-2 rounded-lg hover:bg-orange-600 transition transform hover:scale-105"
+            >
+              Coba Lagi
+            </button>
+          </div>
+        </div>
+      )}
+
+
+      {/* Button Next Step */}
+      <div className="text-center mt-8">
+        <button
+          onClick={handleNextStep}
+          className="bg-purple-600 text-white px-4 py-2 rounded-lg w-full max-w-xs"
+        >
+          Tahap Selanjutnya
+        </button>
       </div>
     </div>
   );

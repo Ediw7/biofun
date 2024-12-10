@@ -27,11 +27,11 @@ const GamesEdukatif = () => {
     },
     {
       id: 2,
-      title: "Metamorfosis Katak: Susun Prosesnya!",
+      title: "Metamorfosis Kupu-kupu: Susun Prosesnya!",
       category: "puzzle",
       points: "950",
-      icon: "🐸",
-      description: "Susun langkah-langkah metamorfosis katak dari telur hingga menjadi katak dewasa dalam puzzle yang menantang!"
+      icon: "🦋",
+      description: "Susun langkah-langkah metamorfosis kupu-kupu dari telur hingga menjadi kupu-kupu yang cantik dalam puzzle yang menantang!"
     },
     {
       id: 4,
