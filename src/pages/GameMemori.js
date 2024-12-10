@@ -103,62 +103,62 @@ const GameMemori = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-50 to-blue-50">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-purple-50 to-blue-50 px-4 sm:px-6">
       {/* Hero Section - Full width */}
-      <div className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-12 text-center">
-        <h1 className="text-4xl font-bold mb-4 transition-all duration-300 hover:scale-110">
+      <div className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-6 sm:py-12 text-center">
+        <h1 className="text-2xl sm:text-4xl font-bold mb-2 sm:mb-4 transition-all duration-300 hover:scale-105">
           Game Memori Hewan
         </h1>
-        <p className="text-lg">Klik pada gambar untuk mencocokkan pasangan!</p>
+        <p className="text-sm sm:text-lg">Klik pada gambar untuk mencocokkan pasangan!</p>
       </div>
 
       {/* Game Over Message */}
       {isGameOver && (
-        <div className="mt-6 text-2xl font-semibold text-purple-600">
+        <div className="mt-4 sm:mt-6 text-xl sm:text-2xl font-semibold text-purple-600 text-center">
           Kamu menang! Semua kartu telah dicocokkan.
         </div>
       )}
 
       {/* Buttons for restarting or exiting, only when the game is over */}
       {isGameOver && (
-        <div className="mt-6 flex space-x-4">
+        <div className="mt-4 sm:mt-6 flex space-x-4">
           <button
             onClick={restartGame}
-            className="bg-purple-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-purple-700 transition duration-200"
+            className="bg-purple-600 text-white py-2 px-4 sm:px-6 rounded-lg shadow-md hover:bg-purple-700 transition duration-200 text-sm sm:text-base"
           >
             Main Lagi
           </button>
           <button
             onClick={exitGame}
-            className="bg-red-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-red-700 transition duration-200"
+            className="bg-red-600 text-white py-2 px-4 sm:px-6 rounded-lg shadow-md hover:bg-red-700 transition duration-200 text-sm sm:text-base"
           >
             Keluar
           </button>
         </div>
       )}
 
-      {/* Cards Grid - Centered with smaller card size */}
-      <div className="grid grid-cols-4 gap-6 mt-8 mb-8 max-w-4xl mx-auto">
+      {/* Cards Grid - Responsive layout */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 sm:gap-6 mt-4 sm:mt-8 mb-4 sm:mb-8 max-w-4xl mx-auto">
         {cards.map((card) => (
           <div
             key={card.id}
-            className={`w-28 h-36 bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 ${
+            className={`w-20 h-28 sm:w-28 sm:h-36 bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 ${
               card.isFlipped || card.isMatched ? "cursor-default" : "cursor-pointer"
             }`}
             onClick={() => handleCardClick(card.id)}
           >
             {card.isFlipped || card.isMatched ? (
-              <div className="flex flex-col items-center justify-center h-full p-2">
+              <div className="flex flex-col items-center justify-center h-full p-1 sm:p-2">
                 <img
                   src={card.image}
                   alt={card.name}
-                  className="w-full h-24 object-cover rounded-lg mb-2"
+                  className="w-full h-16 sm:h-24 object-cover rounded-lg mb-1 sm:mb-2"
                 />
-                <p className="text-center text-sm font-semibold text-gray-800">{card.name}</p>
-                <p className="text-center text-xs text-gray-600">{card.scientificName}</p>
+                <p className="text-center text-xs sm:text-sm font-semibold text-gray-800 truncate">{card.name}</p>
+                <p className="text-center text-[10px] sm:text-xs text-gray-600 truncate">{card.scientificName}</p>
               </div>
             ) : (
-              <div className="w-full h-full bg-gray-300 flex items-center justify-center text-xl text-gray-700 font-bold">
+              <div className="w-full h-full bg-gray-300 flex items-center justify-center text-lg sm:text-xl text-gray-700 font-bold">
                 ?
               </div>
             )}
@@ -166,6 +166,8 @@ const GameMemori = () => {
         ))}
       </div>
 
+      {/* Toast Container for notifications */}
+      <ToastContainer />
     </div>
   );
 };
