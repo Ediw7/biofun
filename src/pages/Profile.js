@@ -96,7 +96,7 @@ const Profile = () => {
         </div>
 
         {/* Settings Section */}
-        <div className="bg-white py-6 md:py-8 rounded-xl shadow-lg p-4 md:p-6">
+        <div className="bg-white py-6 md:py-8 mb-8 rounded-xl shadow-lg p-4 md:p-6">
           <h2 className="text-xl md:text-2xl font-bold text-purple-600 mb-4">Pengaturan</h2>
           <div className="space-y-3">
             <button
