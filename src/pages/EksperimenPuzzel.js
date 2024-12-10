@@ -5,10 +5,10 @@ const TabelGolonganDarah = () => {
   const navigate = useNavigate();
 
   const serumOptions = [
-    { nama: "Serum Anti-A", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-A.png" },
-    { nama: "Serum Anti-B", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-B.png" },
-    { nama: "Serum Anti-AB", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-AB.png" },
-    { nama: "Serum Anti-D", image: "http://amyfarma.com/wp-content/uploads/2022/08/Anti-D.png" },
+    { nama: "Serum Anti-A", image: "gambar/seruma" },
+    { nama: "Serum Anti-B", image: "gambar/serumb" },
+    { nama: "Serum Anti-AB", image: "hgambar/serumab" },
+    { nama: "Serum Anti-D", image: "gambar/serumd" },
   ];
 
   const agglutinationOptions = [
