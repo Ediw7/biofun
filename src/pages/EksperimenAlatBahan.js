@@ -13,8 +13,8 @@ const alatList = [
 const bahanList = [
   { nama: "Serum Anti-A", image: "gambar/seruma.png", required: true },
   { nama: "Serum Anti-B", image: "gambar/serumb.png", required: true },
-  { nama: "Serum Anti-AB", image: "gambar/serumab", required: true },
-  { nama: "Serum Anti-D", image: "gambar/serumd", required: true },
+  { nama: "Serum Anti-AB", image: "gambar/serumab.png", required: true },
+  { nama: "Serum Anti-D", image: "gambar/serumd.png", required: true },
   { nama: "Alkohol 70%", image: "https://storage.googleapis.com/rxstorage/Product/large/Apotek_Online_Farmaku_com_Alkohol_70_Afiat_100_ml.jpg", required: false },
   { nama: "Biuret", image: "https://images.tokopedia.net/img/cache/700/product-1/2016/2/1/2446149/2446149_484c6515-a66c-4aaa-bb29-f54abc0ba05e.jpg", required: false },
 ];

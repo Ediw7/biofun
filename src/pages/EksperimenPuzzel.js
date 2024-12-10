@@ -5,10 +5,10 @@ const TabelGolonganDarah = () => {
   const navigate = useNavigate();
 
   const serumOptions = [
-    { nama: "Serum Anti-A", image: "gambar/seruma" },
-    { nama: "Serum Anti-B", image: "gambar/serumb" },
-    { nama: "Serum Anti-AB", image: "hgambar/serumab" },
-    { nama: "Serum Anti-D", image: "gambar/serumd" },
+    { nama: "Serum Anti-A", image: "gambar/seruma.png" },
+    { nama: "Serum Anti-B", image: "gambar/serumb.png" },
+    { nama: "Serum Anti-AB", image: "hgambar/serumab.png" },
+    { nama: "Serum Anti-D", image: "gambar/serumd.png" },
   ];
 
   const agglutinationOptions = [
