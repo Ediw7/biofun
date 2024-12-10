@@ -37,6 +37,7 @@ const Header = () => {
     <header className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Logo on the left */}
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
               <Microscope className="w-6 h-6 text-white animate-bounce" />
@@ -46,6 +47,7 @@ const Header = () => {
             </Link>
           </div>
 
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <div key={item.title} className="relative group">
@@ -82,7 +84,11 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="md:hidden">
+          {/* Mobile View - Profile and Hamburger on the right */}
+          <div className="md:hidden flex items-center space-x-4">
+            <Link to="/profile" className="text-gray-500 hover:text-blue-500 transition-colors">
+              <User className="w-6 h-6" />
+            </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-500 hover:text-blue-500 transition-colors"
@@ -91,20 +97,17 @@ const Header = () => {
             </button>
           </div>
 
+          {/* Desktop Profile */}
           <div className="hidden md:flex items-center space-x-2 bg-purple-600 px-4 py-2 rounded-full">
             <Link to="/profile" className="flex items-center space-x-2">
               <User className="w-6 h-6 text-white" />
               <span className="text-white font-semibold">Edi</span>
             </Link>
           </div>
-          <div className="md:hidden">
-            <Link to="/profile" className="text-gray-500 hover:text-blue-500 transition-colors">
-              <User className="w-6 h-6" />
-            </Link>
-          </div>
         </div>
       </div>
 
+      {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="md:hidden border-t border-gray-100">
           <div className="px-2 pt-2 pb-3 space-y-1">
