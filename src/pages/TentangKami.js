@@ -85,16 +85,14 @@ const AboutUs = () => {
                 <h3 className="text-2xl font-semibold mb-4 text-blue-800">Misi</h3>
                 <p className="text-gray-700">
                   Membuat pembelajaran biologi menjadi pengalaman yang menyenangkan, 
-                  interaktif, dan mudah dipahami bagi anak-anak. Kami berkomitmen untuk 
-                  menginspirasi rasa ingin tahu ilmiah dan mencintai alam.
+                  interaktif, dan mudah dipahami bagi anak-anak.
                 </p>
               </div>
               <div className="bg-purple-50 p-8 rounded-2xl shadow-md" data-aos="flip-right">
                 <h3 className="text-2xl font-semibold mb-4 text-purple-800">Visi</h3>
                 <p className="text-gray-700">
                   Menjadi platform pendidikan biologi terdepan yang mengubah cara anak-anak 
-                  memandang dan mempelajari sains, menciptakan generasi yang cerdas, 
-                  kreatif, dan peduli terhadap lingkungan.
+                  memandang dan mempelajari sains, menciptakan generasi yang cerdas dan kreatif.
                 </p>
               </div>
             </div>
