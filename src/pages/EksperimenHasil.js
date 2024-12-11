@@ -80,6 +80,21 @@ const EksperimenHasil = () => {
         </p>
       </div>
 
+ {/* Pilih Pendonor - Responsive */}
+<div className="bg-white p-4 md:p-6 rounded-2xl shadow-xl mt-6 mb-6">
+  <h2 className="text-base md:text-lg font-semibold text-center mb-4">
+    Pilih Pendonor untuk Pasien
+  </h2>
+  <div className="flex justify-between items-center">
+    <p className="text-xs md:text-base text-gray-700">Pasien</p>
+    <div className="border border-gray-300 p-1 md:p-2 text-xs md:text-base rounded-xl w-2/3 bg-gray-100">
+      Pendonor 1
+    </div>
+  </div>
+</div>
+
+
+
       {/* Button Kembali */}
       <div className="mt-6 md:mt-8 text-center">
         <button
