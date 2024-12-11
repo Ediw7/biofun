@@ -1,213 +1,235 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
-
-
 const HeroSection = () => {
+    const learningContentRef = useRef(null);
+    const featuresSectionRef = useRef(null);
+    const navigate = useNavigate();
+
     useEffect(() => {
         AOS.init({
-          duration: 1000, 
-          once: false,
+            duration: 1000, 
+            once: false,
         });
-      }, []);
+    }, []);
 
-  return (
-    <div className="bg-gradient-to-b from-purple-100 to-blue-50 pt-16 pb-24 relative overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-20 h-20 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-20 h-20 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-      </div>
-      
-      <div className="container mx-auto px-4 relative">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-center md:text-left">
-            <h1 
-              data-aos="fade-right"
-              className="font-display text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent font-bold mb-6"
-            >
-              Petualangan Seru Belajar Biologi! 
-            </h1>
-            <p 
-              data-aos="fade-left" 
-              data-aos-delay="100"
-              className="font-body text-xl text-gray-700 mb-8"
-            >
-              Jelajahi dunia biologi dengan animasi, games, dan eksperimen yang mengasyikkan! 🌟
-            </p>
-            <div 
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-            >
-              <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-body text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                Mulai Belajar Sekarang 🚀
-              </button>
+    const scrollToLearningContent = () => {
+        learningContentRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const scrollToFeaturesSection = () => {
+        featuresSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    return (
+        <>
+            <div className="bg-gradient-to-b from-purple-100 to-blue-50 pt-16 pb-24 relative overflow-hidden">
+                <div className="absolute inset-0">
+                    <div className="absolute top-20 left-10 w-20 h-20 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                    <div className="absolute top-40 right-10 w-20 h-20 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                    <div className="absolute -bottom-8 left-20 w-20 h-20 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+                </div>
+                <div className="container mx-auto px-4 relative">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="text-center md:text-left">
+                            <h1
+                                data-aos="fade-right"
+                                className="font-display text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-transparent font-bold mb-6"
+                            >
+                                Petualangan Seru Belajar Biologi!
+                            </h1>
+                            <p
+                                data-aos="fade-left"
+                                data-aos-delay="100"
+                                className="font-body text-xl text-gray-700 mb-8"
+                            >
+                                Jelajahi dunia biologi dengan animasi, games, dan eksperimen yang mengasyikkan! 🌟
+                            </p>
+                            <div
+                                data-aos="fade-up"
+                                data-aos-delay="200"
+                                className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+                            >
+                                <button 
+                                    onClick={scrollToLearningContent}
+                                    className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-body text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                                >
+                                    Mulai Belajar Sekarang 🚀
+                                </button>
+                            </div>
+                        </div>
+                        <div className="hidden md:block relative">
+                            <div data-aos="fade-left" data-aos-delay="300" className="absolute top-0 right-0">
+                                <span role="img" aria-label="microscope" className="text-8xl filter drop-shadow-lg">🔬</span>
+                            </div>
+                            <div data-aos="fade-up" data-aos-delay="400" className="absolute bottom-0 left-0">
+                                <span role="img" aria-label="dna" className="text-8xl filter drop-shadow-lg">🧬</span>
+                            </div>
+                            <div data-aos="zoom-in" data-aos-delay="500" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <span role="img" aria-label="plant" className="text-8xl filter drop-shadow-lg">🌱</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <div className="hidden md:block relative">
-            <div data-aos="fade-left" data-aos-delay="300" className="absolute top-0 right-0">
-              <span role="img" aria-label="microscope" className="text-8xl filter drop-shadow-lg">🔬</span>
+
+            <AboutBioFun scrollToFeaturesSection={scrollToFeaturesSection} />
+            
+            <div ref={featuresSectionRef}>
+                <FeaturesSection />
             </div>
-            <div data-aos="fade-up" data-aos-delay="400" className="absolute bottom-0 left-0">
-              <span role="img" aria-label="dna" className="text-8xl filter drop-shadow-lg">🧬</span>
+            
+            <div ref={learningContentRef}>
+                <LearningContent />
             </div>
-            <div data-aos="zoom-in" data-aos-delay="500" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <span role="img" aria-label="plant" className="text-8xl filter drop-shadow-lg">🌱</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+        </>
+    );
 };
 
-const AboutBioFun = () => (
-  <div className="py-20 bg-gradient-to-b from-purple-50 to-pink-50">
-    <div className="container mx-auto px-4 text-center">
-      <h2 
-        data-aos="fade-up"
-        className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
-      >
-        Apa itu BioFun?
-      </h2>
-      <p 
-        data-aos="fade-up"
-        data-aos-delay="100"
-        className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
-      >
-        BioFun adalah platform belajar biologi yang dirancang khusus untuk anak-anak SD agar mereka bisa belajar dengan cara yang menyenangkan dan interaktif.
-      </p>
-      <button 
-        data-aos="fade-up"
-        data-aos-delay="200"
-        className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-body text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-      >
-        Pelajari Fitur Kami
-      </button>
+const AboutBioFun = ({ scrollToFeaturesSection }) => (
+    <div className="py-20 bg-gradient-to-b from-purple-50 to-pink-50">
+        <div className="container mx-auto px-4 text-center">
+            <h2
+                data-aos="fade-up"
+                className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+            >
+                Apa itu BioFun?
+            </h2>
+            <p
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"
+            >
+                BioFun adalah platform belajar biologi yang dirancang khusus untuk anak-anak SD agar mereka bisa belajar dengan cara yang menyenangkan dan interaktif.
+            </p>
+            <button
+                data-aos="fade-up"
+                data-aos-delay="200"
+                onClick={scrollToFeaturesSection}
+                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full font-body text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            >
+                Pelajari Fitur Kami
+            </button>
+        </div>
     </div>
-  </div>
 );
 
 const FeaturesSection = () => (
-  <div className="py-20 bg-white">
-    <div className="container mx-auto px-4 text-center">
-      <h2 
-        data-aos="fade-up"
-        className="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
-      >
-        Fitur-Fitur Menarik BioFun
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div 
-          data-aos="fade-up"
-          data-aos-delay="100"
-          className="p-6 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-100 hover:shadow-xl transition-shadow duration-300"
-        >
-          <div className="text-4xl mb-4">🎨</div>
-          <h3 className="text-xl font-bold mb-2 text-purple-600">Animasi Interaktif</h3>
-          <p className="text-gray-600">Tonton animasi seru dan pelajari biologi dengan cara yang menyenangkan!</p>
+    <div className="py-20 bg-white">
+        <div className="container mx-auto px-4 text-center">
+            <h2
+                data-aos="fade-up"
+                className="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+            >
+                Fitur-Fitur Menarik BioFun
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="p-6 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-100 hover:shadow-xl transition-shadow duration-300"
+                >
+                    <div className="text-4xl mb-4">🎨</div>
+                    <h3 className="text-xl font-bold mb-2 text-purple-600">Animasi Interaktif</h3>
+                    <p className="text-gray-600">Tonton animasi seru dan pelajari biologi dengan cara yang menyenangkan!</p>
+                </div>
+                <div
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                    className="p-6 rounded-xl bg-gradient-to-br from-pink-50 to-orange-50 border border-pink-100 hover:shadow-xl transition-shadow duration-300"
+                >
+                    <div className="text-4xl mb-4">🧩</div>
+                    <h3 className="text-xl font-bold mb-2 text-pink-600">Games Edukatif</h3>
+                    <p className="text-gray-600">Mainkan game seru untuk uji pengetahuanmu!</p>
+                </div>
+                <div
+                    data-aos="fade-up"
+                    data-aos-delay="300"
+                    className="p-6 rounded-xl bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-100 hover:shadow-xl transition-shadow duration-300"
+                >
+                    <div className="text-4xl mb-4">🧪</div>
+                    <h3 className="text-xl font-bold mb-2 text-orange-600">Eksperimen Virtual</h3>
+                    <p className="text-gray-600">Lakukan eksperimen langsung secara virtual!</p>
+                </div>
+            </div>
         </div>
-        <div 
-          data-aos="fade-up"
-          data-aos-delay="200"
-          className="p-6 rounded-xl bg-gradient-to-br from-pink-50 to-orange-50 border border-pink-100 hover:shadow-xl transition-shadow duration-300"
-        >
-          <div className="text-4xl mb-4">🧩</div>
-          <h3 className="text-xl font-bold mb-2 text-pink-600">Games Edukatif</h3>
-          <p className="text-gray-600">Mainkan game seru untuk uji pengetahuanmu!</p>
-        </div>
-        <div 
-          data-aos="fade-up"
-          data-aos-delay="300"
-          className="p-6 rounded-xl bg-gradient-to-br from-orange-50 to-yellow-50 border border-orange-100 hover:shadow-xl transition-shadow duration-300"
-        >
-          <div className="text-4xl mb-4">🧪</div>
-          <h3 className="text-xl font-bold mb-2 text-orange-600">Eksperimen Virtual</h3>
-          <p className="text-gray-600">Lakukan eksperimen langsung secara virtual!</p>
-        </div>
-      </div>
     </div>
-  </div>
 );
 
 const LearningContent = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    return (
+        <div className="py-20 bg-gradient-to-b from-purple-50 to-pink-50">
+            <div className="container mx-auto px-4 text-center">
+                <h2
+                    data-aos="fade-up"
+                    className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                >
+                    Coba Belajar Sekarang!
+                </h2>
+                <p
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    className="text-lg text-gray-600 mb-12"
+                >
+                    Ayo, tonton videonya dan pelajari hal-hal menarik tentang biologi!
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* Kartu 1: Hewan */}
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                        className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    >
+                        <div className="text-4xl mb-4">🐾</div>
+                        <h3 className="text-xl font-bold mb-4 text-purple-600">Belajar Hewan</h3>
+                        <button
+                            onClick={() => navigate("/belajar-hewan")}
+                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
+                        >
+                            Tonton Sekarang
+                        </button>
+                    </div>
 
-  return (
-    <div className="py-20 bg-gradient-to-b from-purple-50 to-pink-50">
-      <div className="container mx-auto px-4 text-center">
-        <h2
-          data-aos="fade-up"
-          className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
-        >
-          Coba Belajar Sekarang!
-        </h2>
-        <p
-          data-aos="fade-up"
-          data-aos-delay="100"
-          className="text-lg text-gray-600 mb-12"
-        >
-          Ayo, tonton videonya dan pelajari hal-hal menarik tentang biologi!
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Kartu 1: Hewan */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
-          >
-            <div className="text-4xl mb-4">🐾</div>
-            <h3 className="text-xl font-bold mb-4 text-purple-600">Belajar Hewan</h3>
-            <button
-              onClick={() => navigate("/belajar-hewan")}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
-            >
-              Tonton Sekarang
-            </button>
-          </div>
+                    {/* Kartu 2: Tumbuhan */}
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                        className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    >
+                        <div className="text-4xl mb-4">🌿</div>
+                        <h3 className="text-xl font-bold mb-4 text-pink-600">Belajar Tumbuhan</h3>
+                        <button
+                            onClick={() => navigate("/belajar-tumbuhan")}
+                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
+                        >
+                            Tonton Sekarang
+                        </button>
+                    </div>
 
-          {/* Kartu 2: Tumbuhan */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="300"
-            className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
-          >
-            <div className="text-4xl mb-4">🌿</div>
-            <h3 className="text-xl font-bold mb-4 text-pink-600">Belajar Tumbuhan</h3>
-            <button
-              onClick={() => navigate("/belajar-tumbuhan")}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
-            >
-              Tonton Sekarang
-            </button>
-          </div>
-
-          {/* Kartu 3: Manusia */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="400"
-            className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
-          >
-            <div className="text-4xl mb-4">🧑</div>
-            <h3 className="text-xl font-bold mb-4 text-orange-600">Belajar Manusia</h3>
-            <button
-              onClick={() => navigate("/belajar-manusia")}
-              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
-            >
-              Tonton Sekarang
-            </button>
-          </div>
+                    {/* Kartu 3: Manusia */}
+                    <div
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                        className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+                    >
+                        <div className="text-4xl mb-4">🧑</div>
+                        <h3 className="text-xl font-bold mb-4 text-orange-600">Belajar Manusia</h3>
+                        <button
+                            onClick={() => navigate("/belajar-manusia")}
+                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all duration-200"
+                        >
+                            Tonton Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     );
-  };
-  
+};
 
   const testimonialData = [
     {
