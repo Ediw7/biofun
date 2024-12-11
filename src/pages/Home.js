@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
     const learningContentRef = useRef(null);
-    const featuresSectionRef = useRef(null);
-    const navigate = useNavigate();
+
 
     useEffect(() => {
         AOS.init({
@@ -18,10 +17,6 @@ const HeroSection = () => {
 
     const scrollToLearningContent = () => {
         learningContentRef.current?.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    const scrollToFeaturesSection = () => {
-        featuresSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
@@ -74,17 +69,8 @@ const HeroSection = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <AboutBioFun scrollToFeaturesSection={scrollToFeaturesSection} />
-            
-            <div ref={featuresSectionRef}>
-                <FeaturesSection />
-            </div>
-            
-            <div ref={learningContentRef}>
-                <LearningContent />
-            </div>
+            </div>        
+          
         </>
     );
 };
