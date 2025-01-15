@@ -52,7 +52,7 @@ const VideoMamalia = () => {
           {/* Main Video Display */}
           <div className="relative aspect-video bg-gray-900">
             <img 
-              src="/api/placeholder/800/450" 
+              src="https://awsimages.detik.net.id/content/2015/02/23/1520/sing.jpg" 
               alt="Video Player"
               className="w-full h-full object-cover"
             />

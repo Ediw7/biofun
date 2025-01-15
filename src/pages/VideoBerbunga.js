@@ -52,7 +52,7 @@ const VideoBerbunga = () => {
           {/* Main Video Display */}
           <div className="relative aspect-video bg-gray-900">
             <img 
-              src="/api/placeholder/800/450" 
+              src="https://assets.promediateknologi.id/crop/0x0:0x0/750x0/webp/photo/2022/06/28/2748958864.png" 
               alt="Video Player"
               className="w-full h-full object-cover"
             />

@@ -52,7 +52,7 @@ const VideoPencernaan = () => {
           {/* Main Video Display */}
           <div className="relative aspect-video bg-gray-900">
             <img 
-              src="/api/placeholder/800/450" 
+              src="https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2023/05/12044729/Mengenal-Organ-Pencernaan-dan-Fungsinya.jpg.webp" 
               alt="Video Player"
               className="w-full h-full object-cover"
             />
